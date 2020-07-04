@@ -12,9 +12,17 @@ struct ContentView: View {
     var taskItems = testData
 
     var body: some View {
-        List(taskItems) { item in
-            Text(item.title)
+        List {
+            Section(header: Text("Todo")){
+                ForEach(items(state: .todo)) { item in
+                    Text(item.title)
+                }
+            }
         }
+    }
+
+    private func items(state: TodoItem.TodoState) -> [TodoItem] {
+        return taskItems.filter { $0.state == state }
     }
 }
 
