@@ -9,8 +9,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    var taskItems = testData
+
     var body: some View {
-        Text("Hello, World!")
+        List(taskItems) { item in
+            Text(item.title)
+        }
     }
 }
 
