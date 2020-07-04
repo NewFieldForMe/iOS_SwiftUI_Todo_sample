@@ -13,16 +13,14 @@ struct ContentView: View {
 
     var body: some View {
         List {
-            Section(header: Text("Todo")){
-                ForEach(items(state: .todo)) { item in
-                    Text(item.title)
+            ForEach(TodoItem.TodoState.allCases) { state in
+                Section(header: Text(state.label)) {
+                    ForEach(self.taskItems.items(state: state)) { item in
+                        Text(item.title)
+                    }
                 }
             }
         }
-    }
-
-    private func items(state: TodoItem.TodoState) -> [TodoItem] {
-        return taskItems.filter { $0.state == state }
     }
 }
 
