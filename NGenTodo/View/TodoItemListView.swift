@@ -9,24 +9,29 @@
 import SwiftUI
 
 struct TodoItemListView: View {
-    @State
-    var taskItems: [TodoItem] = []
+    @State var taskItems: [TodoItem] = []
+    @State var showingAddTodo = false
 
     var body: some View {
-        ZStack {
-            List {
-                ForEach(TodoItem.TodoState.allCases) { state in
-                    Section(header: Text(state.label)) {
-                        ForEach(self.taskItems.items(state: state)) { item in
-                            Text(item.title)
+        NavigationView {
+            ZStack {
+                List {
+                    ForEach(TodoItem.TodoState.allCases) { state in
+                        Section(header: Text(state.label)) {
+                            ForEach(self.taskItems.items(state: state)) { item in
+                                Text(item.title)
+                            }
                         }
                     }
                 }
-            }
 
-            FloatingButtonView() {
-                self.taskItems = testData
-            }
+                FloatingButtonView() {
+                    self.taskItems = testData
+                    self.showingAddTodo.toggle()
+                }.sheet(isPresented: $showingAddTodo) {
+                    AddTodoItemView()
+                }
+            }.navigationBarTitle("Todo List")
         }
     }
 }
