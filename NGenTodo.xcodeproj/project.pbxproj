@@ -15,6 +15,7 @@
 		8E0333C624B0639000A399D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E0333C424B0639000A399D0 /* LaunchScreen.storyboard */; };
 		8E0333D124B0639000A399D0 /* NGenTodoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0333D024B0639000A399D0 /* NGenTodoTests.swift */; };
 		8E0333DD24B065C100A399D0 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0333DC24B065C100A399D0 /* TodoItem.swift */; };
+		8EF6C6C724B312E60008CF70 /* FloatingButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF6C6C624B312E60008CF70 /* FloatingButtonView.swift */; };
 		926DB0DD24B0C26F00130FF6 /* TodoItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926DB0DC24B0C26F00130FF6 /* TodoItemListView.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		8E0333D024B0639000A399D0 /* NGenTodoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGenTodoTests.swift; sourceTree = "<group>"; };
 		8E0333D224B0639000A399D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E0333DC24B065C100A399D0 /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
+		8EF6C6C624B312E60008CF70 /* FloatingButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButtonView.swift; sourceTree = "<group>"; };
 		926DB0DC24B0C26F00130FF6 /* TodoItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				926DB0DC24B0C26F00130FF6 /* TodoItemListView.swift */,
+				8EF6C6C624B312E60008CF70 /* FloatingButtonView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EF6C6C724B312E60008CF70 /* FloatingButtonView.swift in Sources */,
 				8E0333BA24B0638F00A399D0 /* AppDelegate.swift in Sources */,
 				926DB0DD24B0C26F00130FF6 /* TodoItemListView.swift in Sources */,
 				8E0333BC24B0638F00A399D0 /* SceneDelegate.swift in Sources */,

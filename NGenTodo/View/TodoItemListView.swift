@@ -9,7 +9,8 @@
 import SwiftUI
 
 struct TodoItemListView: View {
-    var taskItems = testData
+    @State
+    var taskItems: [TodoItem] = []
 
     var body: some View {
         ZStack {
@@ -23,29 +24,9 @@ struct TodoItemListView: View {
                 }
             }
 
-            VStack {
-                Spacer()
-                HStack {
-                    Spacer()
-                    Button(action: {
-                        // TODO: Add Action
-                    }, label: {
-                        Text("+")
-                            .font(.system(.largeTitle))
-                            .frame(width: 77, height: 70)
-                            .foregroundColor(Color.white)
-                            .padding(.bottom, 7)
-                    })
-                    .background(Color.blue)
-                    .cornerRadius(38.5)
-                    .padding()
-                    .shadow(color: Color.black.opacity(0.3),
-                            radius: 3,
-                            x: 3,
-                            y: 3)
-                }
+            FloatingButtonView() {
+                self.taskItems = testData
             }
-
         }
     }
 }
