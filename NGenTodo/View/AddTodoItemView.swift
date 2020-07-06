@@ -9,16 +9,22 @@
 import SwiftUI
 
 struct AddTodoItemView: View {
-    @State
-    var title = ""
+    @State var title = ""
+    @Environment(\.presentationMode) private var presentationMode
 
     var body: some View {
         NavigationView {
-            VStack {
-                TextField("Title", text: $title)
+            ZStack {
+                VStack {
+                    TextField("Title", text: $title)
+                }
+                .padding(EdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16))
+                .navigationBarTitle("Add Todo")
+
+                FloatingButtonView() {
+                    self.presentationMode.wrappedValue.dismiss()
+                }
             }
-            .padding(EdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16))
-            .navigationBarTitle("Add Todo")
         }
     }
 }
