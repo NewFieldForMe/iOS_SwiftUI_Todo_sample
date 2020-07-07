@@ -12,12 +12,17 @@ struct AddTodoItemView: View {
     @State var title = ""
     @Environment(\.presentationMode) private var presentationMode
     var completionHandler: ((TodoItem) -> Void)
+    @State var editting = false
 
     var body: some View {
         NavigationView {
             ZStack {
                 VStack {
-                    TextField("Title", text: $title)
+                    TextField("Title", text: $title, onEditingChanged: { editting in
+                        self.editting = editting
+                    })
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .shadow(color: editting ? .blue : .clear, radius: 3)
                 }
                 .padding(EdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16))
                 .navigationBarTitle("Add Todo")
