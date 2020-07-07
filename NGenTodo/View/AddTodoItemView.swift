@@ -23,6 +23,7 @@ struct AddTodoItemView: View {
                     })
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .shadow(color: editting ? .blue : .clear, radius: 3)
+                    Spacer()
                 }
                 .padding(EdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16))
                 .navigationBarTitle("Add Todo")
