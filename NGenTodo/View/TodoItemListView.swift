@@ -29,10 +29,16 @@ struct TodoItemListView: View {
                     self.taskItems = testData
                     self.showingAddTodo.toggle()
                 }.sheet(isPresented: $showingAddTodo) {
-                    AddTodoItemView()
+                    AddTodoItemView(completionHandler: self.addItem)
                 }
             }.navigationBarTitle("Todo List")
         }
+    }
+}
+
+private extension TodoItemListView {
+    func addItem(_ item: TodoItem) {
+        self.taskItems.append(item)
     }
 }
 

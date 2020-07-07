@@ -11,6 +11,7 @@ import SwiftUI
 struct AddTodoItemView: View {
     @State var title = ""
     @Environment(\.presentationMode) private var presentationMode
+    var completionHandler: ((TodoItem) -> Void)
 
     var body: some View {
         NavigationView {
@@ -25,6 +26,7 @@ struct AddTodoItemView: View {
                 })
 
                 FloatingButtonView() {
+                    self.completionHandler(self.makeTodoItem())
                     self.presentationMode.wrappedValue.dismiss()
                 }
             }
@@ -32,8 +34,14 @@ struct AddTodoItemView: View {
     }
 }
 
+private extension AddTodoItemView {
+    func makeTodoItem() -> TodoItem {
+        return TodoItem(title: title, state: .todo)
+    }
+}
+
 struct AddTodoItemView_Previews: PreviewProvider {
     static var previews: some View {
-        AddTodoItemView()
+        AddTodoItemView(completionHandler: { _ in })
     }
 }
