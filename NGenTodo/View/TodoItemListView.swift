@@ -9,11 +9,16 @@
 import SwiftUI
 
 struct TodoItemListView: View {
-    @State var taskItems: [TodoItem] = []
+    @Environment(\.managedObjectContext) var context
+    @State var taskItems: [TodoItem]
     @State var showingAddTodo = false
+    @FetchRequest(
+        entity: TodoData.entity(),
+       sortDescriptors: []
+    ) var notCompletedTasks: FetchedResults<TodoData>
 
     var body: some View {
-        NavigationView {
+        return NavigationView {
             ZStack {
                 List {
                     ForEach(TodoItem.TodoState.allCases) { state in
@@ -26,7 +31,6 @@ struct TodoItemListView: View {
                 }
 
                 FloatingButtonView() {
-                    self.taskItems = testData
                     self.showingAddTodo.toggle()
                 }.sheet(isPresented: $showingAddTodo) {
                     AddTodoItemView(completionHandler: self.addItem)
@@ -38,12 +42,29 @@ struct TodoItemListView: View {
 
 private extension TodoItemListView {
     func addItem(_ item: TodoItem) {
+        // Todo: Refactoring and save state
         self.taskItems.append(item)
+        let data = TodoData(context: context)
+        data.id = item.id
+        data.title = item.title
+        do {
+            try context.save()
+        } catch {
+            print(error)
+        }
+        show()
+    }
+
+    func show() {
+        self.taskItems = notCompletedTasks.map { data in
+            let item = TodoItem(id: data.id!, title: data.title!, state: .todo)
+            return item
+        }
     }
 }
 
 struct TodoItemListView_Previews: PreviewProvider {
     static var previews: some View {
-        TodoItemListView()
+        TodoItemListView(taskItems: [])
     }
 }

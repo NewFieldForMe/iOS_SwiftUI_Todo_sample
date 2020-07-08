@@ -9,10 +9,20 @@
 import SwiftUI
 
 struct ContentView: View {
-    var taskItems = testData
+    @FetchRequest(
+        entity: TodoData.entity(),
+        sortDescriptors: []
+    ) var notCompletedTasks: FetchedResults<TodoData>
 
     var body: some View {
-        TodoItemListView()
+        TodoItemListView(taskItems: show())
+    }
+
+    func show() -> [TodoItem] {
+        return notCompletedTasks.map { data in
+            let item = TodoItem(id: data.id!, title: data.title!, state: .todo)
+            return item
+        }
     }
 }
 

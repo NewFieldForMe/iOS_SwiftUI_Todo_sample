@@ -15,6 +15,8 @@
 		8E0333C624B0639000A399D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E0333C424B0639000A399D0 /* LaunchScreen.storyboard */; };
 		8E0333D124B0639000A399D0 /* NGenTodoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0333D024B0639000A399D0 /* NGenTodoTests.swift */; };
 		8E0333DD24B065C100A399D0 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0333DC24B065C100A399D0 /* TodoItem.swift */; };
+		8E5351E124B5D1A200ACBFA8 /* NGenTodo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8E5351DF24B5D1A100ACBFA8 /* NGenTodo.xcdatamodeld */; };
+		8E53521524B5D56500ACBFA8 /* TodoData+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E53521424B5D56500ACBFA8 /* TodoData+Extensions.swift */; };
 		8EF6C6C724B312E60008CF70 /* FloatingButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF6C6C624B312E60008CF70 /* FloatingButtonView.swift */; };
 		8EF6C6CB24B314EA0008CF70 /* AddTodoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF6C6CA24B314EA0008CF70 /* AddTodoItemView.swift */; };
 		926DB0DD24B0C26F00130FF6 /* TodoItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 926DB0DC24B0C26F00130FF6 /* TodoItemListView.swift */; };
@@ -43,6 +45,8 @@
 		8E0333D024B0639000A399D0 /* NGenTodoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGenTodoTests.swift; sourceTree = "<group>"; };
 		8E0333D224B0639000A399D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E0333DC24B065C100A399D0 /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
+		8E5351E024B5D1A200ACBFA8 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		8E53521424B5D56500ACBFA8 /* TodoData+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TodoData+Extensions.swift"; sourceTree = "<group>"; };
 		8EF6C6C624B312E60008CF70 /* FloatingButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButtonView.swift; sourceTree = "<group>"; };
 		8EF6C6CA24B314EA0008CF70 /* AddTodoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoItemView.swift; sourceTree = "<group>"; };
 		926DB0DC24B0C26F00130FF6 /* TodoItemListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemListView.swift; sourceTree = "<group>"; };
@@ -89,6 +93,7 @@
 			children = (
 				926DB0DB24B0C25900130FF6 /* View */,
 				8E0333DB24B065B500A399D0 /* Model */,
+				8E53521324B5D54F00ACBFA8 /* Data */,
 				8E0333B924B0638F00A399D0 /* AppDelegate.swift */,
 				8E0333BB24B0638F00A399D0 /* SceneDelegate.swift */,
 				8E0333BD24B0638F00A399D0 /* ContentView.swift */,
@@ -96,6 +101,7 @@
 				8E0333C424B0639000A399D0 /* LaunchScreen.storyboard */,
 				8E0333C724B0639000A399D0 /* Info.plist */,
 				8E0333C124B0639000A399D0 /* Preview Content */,
+				8E5351DF24B5D1A100ACBFA8 /* NGenTodo.xcdatamodeld */,
 			);
 			path = NGenTodo;
 			sourceTree = "<group>";
@@ -123,6 +129,14 @@
 				8E0333DC24B065C100A399D0 /* TodoItem.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8E53521324B5D54F00ACBFA8 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8E53521424B5D56500ACBFA8 /* TodoData+Extensions.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		926DB0DB24B0C25900130FF6 /* View */ = {
@@ -238,7 +252,9 @@
 			files = (
 				8EF6C6C724B312E60008CF70 /* FloatingButtonView.swift in Sources */,
 				8E0333BA24B0638F00A399D0 /* AppDelegate.swift in Sources */,
+				8E53521524B5D56500ACBFA8 /* TodoData+Extensions.swift in Sources */,
 				926DB0DD24B0C26F00130FF6 /* TodoItemListView.swift in Sources */,
+				8E5351E124B5D1A200ACBFA8 /* NGenTodo.xcdatamodeld in Sources */,
 				8E0333BC24B0638F00A399D0 /* SceneDelegate.swift in Sources */,
 				8E0333DD24B065C100A399D0 /* TodoItem.swift in Sources */,
 				8E0333BE24B0638F00A399D0 /* ContentView.swift in Sources */,
@@ -501,6 +517,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8E5351DF24B5D1A100ACBFA8 /* NGenTodo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8E5351E024B5D1A200ACBFA8 /* Model.xcdatamodel */,
+			);
+			currentVersion = 8E5351E024B5D1A200ACBFA8 /* Model.xcdatamodel */;
+			path = NGenTodo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8E0333AE24B0638F00A399D0 /* Project object */;
 }
