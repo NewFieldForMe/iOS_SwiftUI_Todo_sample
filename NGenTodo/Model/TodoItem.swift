@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct TodoItem: Identifiable {
     enum TodoState: CaseIterable, Identifiable {
@@ -26,7 +27,12 @@ struct TodoItem: Identifiable {
     var id = UUID()
     var title: String
     var state: TodoState
+}
 
+extension TodoItem {
+    static func item(_ data: TodoData) -> TodoItem {
+        return TodoItem(id: data.id!, title: data.title!, state: .todo)
+    }
 }
 
 extension Array where Element == TodoItem {

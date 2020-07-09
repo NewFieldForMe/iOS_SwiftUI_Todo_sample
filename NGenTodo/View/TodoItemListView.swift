@@ -42,8 +42,6 @@ struct TodoItemListView: View {
 
 private extension TodoItemListView {
     func addItem(_ item: TodoItem) {
-        // Todo: Refactoring and save state
-        self.taskItems.append(item)
         let data = TodoData(context: context)
         data.id = item.id
         data.title = item.title
@@ -57,8 +55,7 @@ private extension TodoItemListView {
 
     func show() {
         self.taskItems = notCompletedTasks.map { data in
-            let item = TodoItem(id: data.id!, title: data.title!, state: .todo)
-            return item
+            return TodoItem.item(data)
         }
     }
 }
