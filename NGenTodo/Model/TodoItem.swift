@@ -8,6 +8,7 @@
 
 import Foundation
 import SwiftUI
+import CoreData
 
 struct TodoItem: Identifiable {
     enum TodoState: CaseIterable, Identifiable {
@@ -32,6 +33,17 @@ struct TodoItem: Identifiable {
 extension TodoItem {
     static func item(_ data: TodoData) -> TodoItem {
         return TodoItem(id: data.id!, title: data.title!, state: .todo)
+    }
+
+    func save(_ context: NSManagedObjectContext) {
+        let data = TodoData(context: context)
+        data.id = id
+        data.title = title
+        do {
+            try context.save()
+        } catch {
+            print(error)
+        }
     }
 }
 

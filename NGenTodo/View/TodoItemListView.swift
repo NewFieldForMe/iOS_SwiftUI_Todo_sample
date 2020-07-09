@@ -42,14 +42,7 @@ struct TodoItemListView: View {
 
 private extension TodoItemListView {
     func addItem(_ item: TodoItem) {
-        let data = TodoData(context: context)
-        data.id = item.id
-        data.title = item.title
-        do {
-            try context.save()
-        } catch {
-            print(error)
-        }
+        item.save(context)
         show()
     }
 
