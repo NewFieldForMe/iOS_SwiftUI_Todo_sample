@@ -14,7 +14,7 @@ struct TodoItemListView: View {
     @State var showingAddTodo = false
     @FetchRequest(
         entity: TodoData.entity(),
-       sortDescriptors: []
+        sortDescriptors: []
     ) var notCompletedTasks: FetchedResults<TodoData>
 
     var body: some View {
