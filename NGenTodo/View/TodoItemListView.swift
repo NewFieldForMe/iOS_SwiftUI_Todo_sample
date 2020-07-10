@@ -24,7 +24,10 @@ struct TodoItemListView: View {
                     ForEach(TodoItem.TodoState.allCases) { state in
                         Section(header: Text(state.label)) {
                             ForEach(self.taskItems.items(state: state)) { item in
-                                Text(item.title)
+                                // Todo: Add EditMode
+                                NavigationLink(destination: AddTodoItemView(completionHandler: self.addItem)) {
+                                    Text(item.title)
+                                }
                             }
                         }
                     }
