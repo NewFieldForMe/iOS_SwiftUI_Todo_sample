@@ -28,7 +28,7 @@ struct TodoItemListView: View {
                                 NavigationLink(destination: AddTodoItemView(completionHandler: self.addItem)) {
                                     Text(item.title)
                                 }
-                            }
+                            }.onDelete(perform: self.removeItem)
                         }
                     }
                 }
@@ -47,6 +47,11 @@ private extension TodoItemListView {
     func addItem(_ item: TodoItem) {
         item.save(context)
         show()
+    }
+
+    func removeItem(offsets: IndexSet) {
+        // Todo: Remove from CoreData
+        taskItems.remove(atOffsets: offsets)
     }
 
     func show() {
