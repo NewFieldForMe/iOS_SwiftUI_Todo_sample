@@ -50,8 +50,10 @@ private extension TodoItemListView {
     }
 
     func removeItem(offsets: IndexSet) {
-        // Todo: Remove from CoreData
-        taskItems.remove(atOffsets: offsets)
+        offsets.forEach { index in
+            taskItems[index].delete(context)
+        }
+        show()
     }
 
     func show() {

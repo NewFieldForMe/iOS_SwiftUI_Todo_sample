@@ -28,22 +28,25 @@ struct TodoItem: Identifiable {
     var id = UUID()
     var title: String
     var state: TodoState
+    var data: TodoData?
 }
 
 extension TodoItem {
     static func item(_ data: TodoData) -> TodoItem {
-        return TodoItem(id: data.id!, title: data.title!, state: .todo)
+        return TodoItem(id: data.id!, title: data.title!, state: .todo, data: data)
     }
 
     func save(_ context: NSManagedObjectContext) {
         let data = TodoData(context: context)
         data.id = id
         data.title = title
-        do {
-            try context.save()
-        } catch {
-            print(error)
-        }
+        try? context.save()
+    }
+
+    func delete(_ context: NSManagedObjectContext) {
+        guard let data = self.data else { return }
+        context.delete(data)
+        try? context.save()
     }
 }
 
