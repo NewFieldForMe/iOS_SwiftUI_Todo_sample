@@ -10,23 +10,36 @@ import SwiftUI
 
 struct AddTodoItemView: View {
     @State var title = ""
+    @State var titleEditting = false
     @Environment(\.presentationMode) private var presentationMode
     var completionHandler: ((TodoItem) -> Void)
-    @State var editting = false
+    let mode: Mode
+
+    enum Mode {
+        case add
+        case edit(TodoItem)
+
+        var navigationTitle: String {
+            switch self {
+            case .add: return "Add Todo"
+            case .edit: return "Edit Todo"
+            }
+        }
+    }
 
     var body: some View {
         NavigationView {
             ZStack {
                 VStack {
                     TextField("Title", text: $title, onEditingChanged: { editting in
-                        self.editting = editting
+                        self.titleEditting = editting
                     })
                     .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .shadow(color: editting ? .blue : .clear, radius: 3)
+                    .shadow(color: titleEditting ? .blue : .clear, radius: 3)
                     Spacer()
                 }
                 .padding(EdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16))
-                .navigationBarTitle("Add Todo")
+                .navigationBarTitle(mode.navigationTitle)
                 .navigationBarItems(leading: Button("Close") {
                     self.presentationMode.wrappedValue.dismiss()
                 })
@@ -48,6 +61,6 @@ private extension AddTodoItemView {
 
 struct AddTodoItemView_Previews: PreviewProvider {
     static var previews: some View {
-        AddTodoItemView(completionHandler: { _ in })
+        AddTodoItemView(completionHandler: { _ in }, mode: .add)
     }
 }

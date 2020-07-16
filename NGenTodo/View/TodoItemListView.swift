@@ -24,8 +24,7 @@ struct TodoItemListView: View {
                     ForEach(TodoItem.TodoState.allCases) { state in
                         Section(header: Text(state.label)) {
                             ForEach(self.taskItems.items(state: state)) { item in
-                                // Todo: Add EditMode
-                                NavigationLink(destination: AddTodoItemView(completionHandler: self.addItem)) {
+                                NavigationLink(destination: AddTodoItemView(title: item.title, completionHandler: self.addItem, mode: .edit(item))) {
                                     Text(item.title)
                                 }
                             }.onDelete(perform: self.removeItem)
@@ -36,7 +35,7 @@ struct TodoItemListView: View {
                 FloatingButtonView() {
                     self.showingAddTodo.toggle()
                 }.sheet(isPresented: $showingAddTodo) {
-                    AddTodoItemView(completionHandler: self.addItem)
+                    AddTodoItemView(completionHandler: self.addItem, mode: .add)
                 }
             }.navigationBarTitle("Todo List")
         }
