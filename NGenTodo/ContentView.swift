@@ -20,7 +20,7 @@ struct ContentView: View {
 
     func show() -> [TodoItem] {
         return notCompletedTasks.map { data in
-            let item = TodoItem(id: data.id!, title: data.title!, state: .todo)
+            let item = TodoItem(id: data.id!, title: data.title!)
             return item
         }
     }

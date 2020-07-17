@@ -21,15 +21,11 @@ struct TodoItemListView: View {
         return NavigationView {
             ZStack {
                 List {
-                    ForEach(TodoItem.TodoState.allCases) { state in
-                        Section(header: Text(state.label)) {
-                            ForEach(self.taskItems.items(state: state)) { item in
-                                NavigationLink(destination: AddTodoItemView(title: item.title, completionHandler: self.editItem, mode: .edit(item))) {
-                                    Text(item.title)
-                                }
-                            }.onDelete(perform: self.removeItem)
+                    ForEach(self.taskItems) { item in
+                        NavigationLink(destination: AddTodoItemView(title: item.title, completionHandler: self.editItem, mode: .edit(item))) {
+                            Text(item.title)
                         }
-                    }
+                    }.onDelete(perform: self.removeItem)
                 }
 
                 FloatingButtonView() {

@@ -49,7 +49,7 @@ struct AddTodoItemView: View {
                     case .add:
                         self.completionHandler(self.makeTodoItem())
                     case let .edit(item):
-                        let todo = TodoItem(id: item.id, title: self.title, state: item.state, data: item.data)
+                        let todo = TodoItem(id: item.id, title: self.title, data: item.data)
                         self.completionHandler(todo)
                     }
                     self.presentationMode.wrappedValue.dismiss()
@@ -61,7 +61,7 @@ struct AddTodoItemView: View {
 
 private extension AddTodoItemView {
     func makeTodoItem() -> TodoItem {
-        return TodoItem(title: title, state: .todo)
+        return TodoItem(title: title)
     }
 }
 
