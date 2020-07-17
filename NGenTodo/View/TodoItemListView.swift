@@ -25,8 +25,11 @@ struct TodoItemListView: View {
                         NavigationLink(destination: AddTodoItemView(title: item.title, completionHandler: self.editItem, mode: .edit(item))) {
                             Text(item.title)
                         }
-                    }.onDelete(perform: self.removeItem)
+                    }
+                    .onDelete(perform: self.removeItem)
+                    .onMove(perform: self.moveItem)
                 }
+                .navigationBarItems(trailing: EditButton())
 
                 FloatingButtonView() {
                     self.showingAddTodo.toggle()
@@ -54,6 +57,11 @@ private extension TodoItemListView {
             taskItems[index].delete(context)
         }
         show()
+    }
+
+    func moveItem(from source: IndexSet, to destination: Int) {
+        taskItems.move(fromOffsets: source, toOffset: destination)
+        // Todo: save order
     }
 
     func show() {
