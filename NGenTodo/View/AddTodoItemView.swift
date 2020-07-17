@@ -45,7 +45,13 @@ struct AddTodoItemView: View {
                 })
 
                 FloatingButtonView() {
-                    self.completionHandler(self.makeTodoItem())
+                    switch self.mode {
+                    case .add:
+                        self.completionHandler(self.makeTodoItem())
+                    case let .edit(item):
+                        let todo = TodoItem(id: item.id, title: self.title, state: item.state, data: item.data)
+                        self.completionHandler(todo)
+                    }
                     self.presentationMode.wrappedValue.dismiss()
                 }
             }

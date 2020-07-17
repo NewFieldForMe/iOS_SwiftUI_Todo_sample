@@ -43,6 +43,12 @@ extension TodoItem {
         try? context.save()
     }
 
+    func update(_ context: NSManagedObjectContext) {
+        guard let data = self.data else { return }
+        data.title = self.title
+        try? context.save()
+    }
+
     func delete(_ context: NSManagedObjectContext) {
         guard let data = self.data else { return }
         context.delete(data)

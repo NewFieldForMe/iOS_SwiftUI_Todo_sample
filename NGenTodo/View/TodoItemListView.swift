@@ -24,7 +24,7 @@ struct TodoItemListView: View {
                     ForEach(TodoItem.TodoState.allCases) { state in
                         Section(header: Text(state.label)) {
                             ForEach(self.taskItems.items(state: state)) { item in
-                                NavigationLink(destination: AddTodoItemView(title: item.title, completionHandler: self.addItem, mode: .edit(item))) {
+                                NavigationLink(destination: AddTodoItemView(title: item.title, completionHandler: self.editItem, mode: .edit(item))) {
                                     Text(item.title)
                                 }
                             }.onDelete(perform: self.removeItem)
@@ -45,6 +45,11 @@ struct TodoItemListView: View {
 private extension TodoItemListView {
     func addItem(_ item: TodoItem) {
         item.save(context)
+        show()
+    }
+
+    func editItem(_ item: TodoItem) {
+        item.update(context)
         show()
     }
 
