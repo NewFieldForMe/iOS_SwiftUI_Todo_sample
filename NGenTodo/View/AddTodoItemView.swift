@@ -12,7 +12,7 @@ struct AddTodoItemView: View {
     @State var title = ""
     @State var titleEditting = false
     @Environment(\.presentationMode) private var presentationMode
-    var completionHandler: ((TodoItem) -> Void)
+    var completionHandler: ((TodoData) -> Void)
     let mode: Mode
 
     enum Mode {
@@ -50,7 +50,7 @@ struct AddTodoItemView: View {
                         self.completionHandler(self.makeTodoItem())
                     case let .edit(item):
                         let todo = TodoItem(id: item.id, title: self.title, data: item.data)
-                        self.completionHandler(todo)
+//                        self.completionHandler(todo)
                     }
                     self.presentationMode.wrappedValue.dismiss()
                 }
@@ -60,8 +60,10 @@ struct AddTodoItemView: View {
 }
 
 private extension AddTodoItemView {
-    func makeTodoItem() -> TodoItem {
-        return TodoItem(title: title)
+    func makeTodoItem() -> TodoData {
+        let data = TodoData()
+        data.title = title
+        return data
     }
 }
 

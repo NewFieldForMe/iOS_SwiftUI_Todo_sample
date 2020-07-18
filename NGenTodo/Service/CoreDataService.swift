@@ -38,4 +38,8 @@ class CoreDataService {
     static func fetch<T>(_ request: NSFetchRequest<T>) -> [T]? {
         return try? context.fetch(request)
     }
+
+    static func new<T: NSManagedObject>() -> T {
+        return T(context: context)
+    }
 }

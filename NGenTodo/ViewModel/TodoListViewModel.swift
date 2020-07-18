@@ -20,6 +20,12 @@ class TodoListViewModel: ObservableObject {
         fetch()
     }
 
+    func add(_ item: TodoData) {
+        CoreDataService.insert(item)
+        CoreDataService.save()
+        fetch()
+    }
+
     func delete(offsets: IndexSet) {
         offsets.forEach { index in
             CoreDataService.delete(todos[index])

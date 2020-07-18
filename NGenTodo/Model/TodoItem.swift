@@ -17,9 +17,9 @@ struct TodoItem: Identifiable {
 }
 
 extension TodoItem {
-    static func item(_ data: TodoData) -> TodoItem {
-        return TodoItem(id: data.id!, title: data.title!, data: data)
-    }
+//    static func item(_ data: TodoData) -> TodoItem {
+//        return TodoItem(id: data.id!, title: data.title!, data: data)
+//    }
 
     func save(_ context: NSManagedObjectContext) {
         let data = TodoData(context: context)
