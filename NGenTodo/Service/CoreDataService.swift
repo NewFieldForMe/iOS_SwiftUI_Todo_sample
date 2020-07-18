@@ -34,4 +34,8 @@ class CoreDataService {
     static func rollback() {
         context.rollback()
     }
+
+    static func fetch<T>(_ request: NSFetchRequest<T>) -> [T]? {
+        return try? context.fetch(request)
+    }
 }
