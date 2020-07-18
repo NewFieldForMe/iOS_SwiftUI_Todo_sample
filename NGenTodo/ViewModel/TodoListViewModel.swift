@@ -32,4 +32,9 @@ class TodoListViewModel: ObservableObject {
         CoreDataService.save()
         todos.remove(atOffsets: offsets)
     }
+
+    func move(from source: IndexSet, to destination: Int) {
+        todos.move(fromOffsets: source, toOffset: destination)
+        // Todo: save order
+    }
 }

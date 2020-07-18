@@ -9,11 +9,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @FetchRequest(
-        entity: TodoData.entity(),
-        sortDescriptors: []
-    ) var notCompletedTasks: FetchedResults<TodoData>
-
     var body: some View {
         TodoItemListView()
     }
