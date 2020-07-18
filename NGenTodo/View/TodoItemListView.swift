@@ -38,7 +38,8 @@ struct TodoItemListView: View {
                 FloatingButtonView() {
                     self.showingAddTodo.toggle()
                 }.sheet(isPresented: $showingAddTodo) {
-                    AddTodoItemView(completionHandler: self.vm.add, mode: .add)
+//                    AddTodoItemView(completionHandler: self.vm.add, mode: .add)
+                    AddTodoItemView()
                 }
             }.navigationBarTitle("Todo List")
         }.onAppear(perform: self.vm.onAppear)

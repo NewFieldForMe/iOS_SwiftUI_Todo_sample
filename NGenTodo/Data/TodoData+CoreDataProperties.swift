@@ -18,7 +18,7 @@ extension TodoData {
     }
 
     @NSManaged public var id: UUID?
-    @NSManaged public var title: String?
+    @NSManaged public var title: String
 
 }
 

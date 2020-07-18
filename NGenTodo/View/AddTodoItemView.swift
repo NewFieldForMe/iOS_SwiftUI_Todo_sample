@@ -9,11 +9,15 @@
 import SwiftUI
 
 struct AddTodoItemView: View {
-    @State var title = ""
     @State var titleEditting = false
     @Environment(\.presentationMode) private var presentationMode
-    var completionHandler: ((TodoData) -> Void)
-    let mode: Mode
+    var completionHandler: ((TodoData) -> Void)? = nil
+    let mode: Mode = .add
+    @ObservedObject var vm: AddTodoViewModel
+
+    init(_ todo: TodoData? = nil) {
+        self.vm = AddTodoViewModel(todo)
+    }
 
     enum Mode {
         case add
@@ -31,7 +35,7 @@ struct AddTodoItemView: View {
         NavigationView {
             ZStack {
                 VStack {
-                    TextField("Title", text: $title, onEditingChanged: { editting in
+                    TextField("Title", text: self.vm.$todo.title, onEditingChanged: { editting in
                         self.titleEditting = editting
                     })
                     .textFieldStyle(RoundedBorderTextFieldStyle())
@@ -41,17 +45,19 @@ struct AddTodoItemView: View {
                 .padding(EdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16))
                 .navigationBarTitle(mode.navigationTitle)
                 .navigationBarItems(leading: Button("Close") {
+                    self.vm.cancel()
                     self.presentationMode.wrappedValue.dismiss()
                 })
 
                 FloatingButtonView() {
-                    switch self.mode {
-                    case .add:
-                        self.completionHandler(self.makeTodoItem())
-                    case let .edit(item):
-                        let todo = TodoItem(id: item.id, title: self.title, data: item.data)
-//                        self.completionHandler(todo)
-                    }
+//                    switch self.mode {
+//                    case .add:
+//                        self.completionHandler(self.makeTodoItem())
+//                    case let .edit(item):
+//                        let todo = TodoItem(id: item.id, title: self.title, data: item.data)
+////                        self.completionHandler(todo)
+//                    }
+                    self.vm.save()
                     self.presentationMode.wrappedValue.dismiss()
                 }
             }
@@ -59,16 +65,8 @@ struct AddTodoItemView: View {
     }
 }
 
-private extension AddTodoItemView {
-    func makeTodoItem() -> TodoData {
-        let data = TodoData()
-        data.title = title
-        return data
-    }
-}
-
 struct AddTodoItemView_Previews: PreviewProvider {
     static var previews: some View {
-        AddTodoItemView(completionHandler: { _ in }, mode: .add)
+        AddTodoItemView()
     }
 }

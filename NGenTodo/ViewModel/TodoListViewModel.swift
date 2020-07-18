@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import CoreData
 
 class TodoListViewModel: ObservableObject {
     @Published var todos: [TodoData] = []
