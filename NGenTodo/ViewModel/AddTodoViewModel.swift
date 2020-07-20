@@ -35,7 +35,6 @@ class AddTodoViewModel: ObservableObject {
     }
 
     func save() {
-        dump(todo)
         CoreDataService.insert(todo)
         CoreDataService.save()
     }
