@@ -12,7 +12,9 @@ class TodoListViewModel: ObservableObject {
     @Published var todos: [TodoData] = []
 
     func fetch() {
-        todos = CoreDataService.fetch(TodoData.fetchRequest()) ?? []
+        todos = CoreDataService.fetch(TodoData.fetchRequest())?.sorted(by: { a, b in
+            a.order < b.order
+        }) ?? []
     }
 
     func onAppear() {
@@ -20,6 +22,7 @@ class TodoListViewModel: ObservableObject {
     }
 
     func add(_ item: TodoData) {
+        item.order = todos.count
         CoreDataService.insert(item)
         CoreDataService.save()
         fetch()
@@ -29,12 +32,21 @@ class TodoListViewModel: ObservableObject {
         offsets.forEach { index in
             CoreDataService.delete(todos[index])
         }
+        setOrder()
         CoreDataService.save()
-        todos.remove(atOffsets: offsets)
+        fetch()
     }
 
     func move(from source: IndexSet, to destination: Int) {
         todos.move(fromOffsets: source, toOffset: destination)
-        // Todo: save order
+        setOrder()
+        CoreDataService.save()
+        fetch()
+    }
+
+    func setOrder() {
+        for (index, todo) in todos.enumerated() {
+            todo.order = index
+        }
     }
 }
