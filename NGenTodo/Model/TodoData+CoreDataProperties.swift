@@ -20,6 +20,8 @@ extension TodoData {
     @NSManaged public var id: UUID?
     @NSManaged public var title: String
     @NSManaged public var order: Int
+    @NSManaged public var createDate: Date?
+    @NSManaged public var deadlineDate: Date?
 
 }
 
