@@ -21,14 +21,19 @@ struct AddTodoItemView: View {
         NavigationView {
             ZStack {
                 VStack {
-                    TextField("Title", text: self.vm.$todo.title, onEditingChanged: { editting in
-                        self.titleEditting = editting
-                    })
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .shadow(color: titleEditting ? .blue : .clear, radius: 3)
-                    Spacer()
+                    Form {
+                        TextField("Title", text: self.vm.$todo.title, onEditingChanged: { editting in
+                            self.titleEditting = editting
+                        }).textFieldStyle(RoundedBorderTextFieldStyle())
+                            .shadow(color: titleEditting ? .blue : .clear, radius: 3)
+                            .padding(EdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16))
+
+                        DatePicker("Deadline",
+                                   selection: Binding<Date>(get: {self.vm.todo.deadlineDate ?? Date()}, set: {self.vm.todo.deadlineDate = $0})
+                        ).padding(EdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16))
+                        Spacer()
+                    }
                 }
-                .padding(EdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16))
                 .navigationBarTitle(vm.mode.navigationTitle)
                 .navigationBarItems(leading: Button("Close") {
                     self.vm.cancel()
