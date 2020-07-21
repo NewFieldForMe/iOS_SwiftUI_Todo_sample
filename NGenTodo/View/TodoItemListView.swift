@@ -38,7 +38,9 @@ struct TodoItemListView: View {
                 FloatingButtonView() {
                     self.showingAddTodo.toggle()
                 }.sheet(isPresented: $showingAddTodo) {
-                    AddTodoItemView().onDisappear(perform: self.vm.onAppear)
+                    NavigationView {
+                        AddTodoItemView().onDisappear(perform: self.vm.onAppear)
+                    }
                 }
             }.navigationBarTitle("Todo List")
         }
