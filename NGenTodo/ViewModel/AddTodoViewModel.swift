@@ -35,6 +35,9 @@ class AddTodoViewModel: ObservableObject {
     }
 
     func save() {
+        if mode == .add {
+            todo.createDate = Date()
+        }
         CoreDataService.insert(todo)
         CoreDataService.save()
     }
