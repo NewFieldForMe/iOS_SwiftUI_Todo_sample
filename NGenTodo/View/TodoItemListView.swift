@@ -22,7 +22,11 @@ struct TodoItemListView: View {
                 List {
                     ForEach(vm.todos) { item in
                         NavigationLink(destination: AddTodoItemView(item)) {
-                        Text(item.title)
+                            HStack {
+                                Text(item.title)
+                                Spacer()
+                                item.deadlineDateString.map { Text($0) }
+                            }
                         }
                     }
                     .onDelete(perform: self.vm.delete)

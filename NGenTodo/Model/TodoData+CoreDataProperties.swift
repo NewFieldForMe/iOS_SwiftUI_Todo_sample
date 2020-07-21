@@ -26,3 +26,11 @@ extension TodoData {
 }
 
 extension TodoData: Identifiable { }
+extension TodoData {
+    var deadlineDateString: String? {
+        guard let deadlineDate = deadlineDate else { return nil }
+        let formatter = DateFormatter()
+        formatter.dateStyle = .full
+        return formatter.string(from: deadlineDate)
+    }
+}
