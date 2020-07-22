@@ -39,6 +39,9 @@ class AddTodoViewModel: ObservableObject {
         if mode == .add {
             todo.createDate = Date()
         }
+        if isUseDeadline == false {
+            todo.deadlineDate = nil
+        }
         CoreDataService.insert(todo)
         CoreDataService.save()
     }
