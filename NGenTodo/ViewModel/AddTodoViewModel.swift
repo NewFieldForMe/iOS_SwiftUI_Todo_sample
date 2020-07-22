@@ -22,6 +22,7 @@ class AddTodoViewModel: ObservableObject {
         }
     }
     @Published var mode: Mode
+    @Published var isUseDeadline = false
 
     init(_ todo: TodoData? = nil) {
         guard let todo = todo else {

@@ -28,10 +28,21 @@ struct AddTodoItemView: View {
                 }).textFieldStyle(RoundedBorderTextFieldStyle())
                     .shadow(color: titleEditting ? .blue : .clear, radius: 3)
                     .padding(EdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16))
+                HStack {
+                    Text("Use Deadline: ")
+                    Image(systemName: vm.isUseDeadline ? "checkmark.square" : "square")
+                        .onTapGesture {
+                            self.vm.isUseDeadline.toggle()
+                    }
+                }
+                .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
 
-                DatePicker("Deadline",
-                           selection: Binding<Date>(get: {self.vm.todo.deadlineDate ?? Date()}, set: {self.vm.todo.deadlineDate = $0})
-                ).padding(EdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16))
+                if (vm.isUseDeadline) {
+                    DatePicker("Deadline",
+                               selection: Binding<Date>(get: {self.vm.todo.deadlineDate ?? Date()}, set: {self.vm.todo.deadlineDate = $0})
+                    )
+                        .padding(EdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16))
+                }
                 Spacer()
             }
 
