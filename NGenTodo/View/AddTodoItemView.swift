@@ -52,9 +52,15 @@ struct AddTodoItemView: View {
         }
         .onAppear(perform: vm.onAppear)
         .navigationBarTitle(vm.mode.navigationTitle)
-        .navigationBarItems(leading: Button("Close") {
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: Button(action : {
             self.vm.cancel()
             self.presentationMode.wrappedValue.dismiss()
+        }){
+            HStack {
+                Image(systemName: "chevron.left")
+                Text("Cancel")
+            }
         })
     }
 }
