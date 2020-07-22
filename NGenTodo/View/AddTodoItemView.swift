@@ -51,6 +51,7 @@ struct AddTodoItemView: View {
                 self.presentationMode.wrappedValue.dismiss()
             }
         }
+        .onAppear(perform: vm.onAppear)
         .navigationBarTitle(vm.mode.navigationTitle)
         .navigationBarItems(leading: Button("Close") {
             self.vm.cancel()

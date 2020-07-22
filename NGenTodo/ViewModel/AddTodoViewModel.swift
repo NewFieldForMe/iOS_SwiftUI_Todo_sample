@@ -22,7 +22,13 @@ class AddTodoViewModel: ObservableObject {
         }
     }
     @Published var mode: Mode
-    @Published var isUseDeadline = false
+    @Published var isUseDeadline = false {
+        willSet {
+            if newValue && todo.deadlineDate == nil {
+                todo.deadlineDate = Date()
+            }
+        }
+    }
 
     init(_ todo: TodoData? = nil) {
         guard let todo = todo else {
@@ -33,6 +39,10 @@ class AddTodoViewModel: ObservableObject {
         }
         self.mode = .edit
         self.todo = todo
+    }
+
+    func onAppear() {
+        self.isUseDeadline = self.todo.deadlineDate != nil
     }
 
     func save() {
