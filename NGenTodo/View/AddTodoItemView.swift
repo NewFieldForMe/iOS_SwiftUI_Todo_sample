@@ -43,7 +43,6 @@ struct AddTodoItemView: View {
                     )
                         .padding(EdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16))
                 }
-                Spacer()
             }
 
             FloatingButtonView() {
