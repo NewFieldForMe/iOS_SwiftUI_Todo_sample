@@ -21,7 +21,7 @@ struct TodoItemListView: View {
             ZStack {
                 List {
                     ForEach(vm.todos) { item in
-                        NavigationLink(destination: AddTodoItemView(item)) {
+                        NavigationLink(destination: InputTodoView(item)) {
                             HStack {
                                 Text(item.title)
                                 Spacer()
@@ -39,7 +39,7 @@ struct TodoItemListView: View {
                     self.showingAddTodo.toggle()
                 }.sheet(isPresented: $showingAddTodo) {
                     NavigationView {
-                        AddTodoItemView().onDisappear(perform: self.vm.onAppear)
+                        InputTodoView().onDisappear(perform: self.vm.onAppear)
                     }
                 }
             }.navigationBarTitle("Todo List")

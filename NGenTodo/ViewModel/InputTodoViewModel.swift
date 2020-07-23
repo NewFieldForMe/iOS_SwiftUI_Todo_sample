@@ -1,5 +1,5 @@
 //
-//  AddTodoViewModel.swift
+//  InputTodoViewModel.swift
 //  NGenTodo
 //
 //  Created by yamada.ryo on 2020/07/19.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-class AddTodoViewModel: ObservableObject {
+class InputTodoViewModel: ObservableObject {
     @ObservedObject var todo: TodoData
     enum Mode {
         case add

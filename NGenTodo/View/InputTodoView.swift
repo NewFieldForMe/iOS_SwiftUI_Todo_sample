@@ -1,5 +1,5 @@
 //
-//  AddTodoItemView.swift
+//  InputTodoView.swift
 //  NGenTodo
 //
 //  Created by yamada.ryo on 2020/07/06.
@@ -8,13 +8,13 @@
 
 import SwiftUI
 
-struct AddTodoItemView: View {
+struct InputTodoView: View {
     @State var titleEditting = false
     @Environment(\.presentationMode) private var presentationMode
-    @ObservedObject var vm: AddTodoViewModel
+    @ObservedObject var vm: InputTodoViewModel
 
     init(_ todo: TodoData? = nil) {
-        self.vm = AddTodoViewModel(todo)
+        self.vm = InputTodoViewModel(todo)
         // Remove top space of form
         // https://stackoverflow.com/questions/58681243/how-to-remove-top-space-of-form-in-swiftui
         UITableView.appearance().tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: Double.leastNonzeroMagnitude))
@@ -65,8 +65,8 @@ struct AddTodoItemView: View {
     }
 }
 
-struct AddTodoItemView_Previews: PreviewProvider {
+struct InputTodoView_Previews: PreviewProvider {
     static var previews: some View {
-        AddTodoItemView()
+        InputTodoView()
     }
 }
