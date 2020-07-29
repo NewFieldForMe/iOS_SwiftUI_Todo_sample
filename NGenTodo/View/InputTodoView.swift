@@ -45,9 +45,11 @@ struct InputTodoView: View {
                 }
             }
 
-            FloatingButtonView() {
-                self.vm.save()
-                self.presentationMode.wrappedValue.dismiss()
+            if (!self.vm.hasError) {
+                FloatingButtonView() {
+                    self.vm.save()
+                    self.presentationMode.wrappedValue.dismiss()
+                }
             }
         }
         .onAppear(perform: vm.onAppear)

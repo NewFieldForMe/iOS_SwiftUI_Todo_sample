@@ -30,6 +30,10 @@ class InputTodoViewModel: ObservableObject {
         }
     }
 
+    var hasError: Bool {
+        return todo.title.isEmpty
+    }
+
     init(_ todo: TodoData? = nil) {
         guard let todo = todo else {
             self.mode = .add
