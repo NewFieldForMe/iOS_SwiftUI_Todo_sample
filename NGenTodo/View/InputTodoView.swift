@@ -23,7 +23,7 @@ struct InputTodoView: View {
     var body: some View {
         ZStack {
             Form {
-                TextField("Title", text: self.vm.$todo.title, onEditingChanged: { editting in
+                TextField("Title", text: self.$vm.todo.title, onEditingChanged: { editting in
                     self.titleEditting = editting
                 }).textFieldStyle(RoundedBorderTextFieldStyle())
                     .shadow(color: titleEditting ? .blue : .clear, radius: 3)

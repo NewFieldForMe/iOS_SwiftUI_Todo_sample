@@ -9,7 +9,7 @@
 import SwiftUI
 
 class InputTodoViewModel: ObservableObject {
-    @ObservedObject var todo: TodoData
+    @Published var todo: TodoData
     enum Mode {
         case add
         case edit
