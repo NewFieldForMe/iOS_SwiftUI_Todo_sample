@@ -33,6 +33,7 @@ struct FloatingButtonView: View {
                             radius: 3,
                             x: 3,
                             y: 3)
+                    .animation(.easeInOut(duration: 0.2))
                 .disabled(isDisabled)
             }
         }
