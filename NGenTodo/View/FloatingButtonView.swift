@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct FloatingButtonView: View {
+    var isDisabled: Bool = false
     let tapHandler: (() -> Void)?
 
     var body: some View {
@@ -25,15 +26,22 @@ struct FloatingButtonView: View {
                         .foregroundColor(Color.white)
                         .padding(.bottom, 7)
                 })
-                    .background(Color.blue)
+                    .background(backgroundColor())
                     .cornerRadius(38.5)
                     .padding()
                     .shadow(color: Color.black.opacity(0.3),
                             radius: 3,
                             x: 3,
                             y: 3)
+                .disabled(isDisabled)
             }
         }
+    }
+}
+
+private extension FloatingButtonView {
+    func backgroundColor() -> Color {
+        return self.isDisabled ? Color.gray : Color.blue
     }
 }
 
