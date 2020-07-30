@@ -22,11 +22,7 @@ struct TodoItemListView: View {
                 List {
                     ForEach(vm.todos) { item in
                         NavigationLink(destination: InputTodoView(item)) {
-                            HStack {
-                                Text(item.title)
-                                Spacer()
-                                item.deadlineDateString.map { Text($0) }
-                            }
+                            TodoItemListCellView(item: item)
                         }
                     }
                     .onDelete(perform: self.vm.delete)
@@ -50,5 +46,16 @@ struct TodoItemListView: View {
 struct TodoItemListView_Previews: PreviewProvider {
     static var previews: some View {
         TodoItemListView()
+    }
+}
+
+struct TodoItemListCellView: View {
+    @ObservedObject var item: TodoData
+    var body: some View {
+        HStack {
+            Text(item.title)
+            Spacer()
+            item.deadlineDateString.map { Text($0) }
+        }
     }
 }
