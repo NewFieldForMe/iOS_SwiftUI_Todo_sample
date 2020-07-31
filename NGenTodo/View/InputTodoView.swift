@@ -37,7 +37,7 @@ struct InputTodoView: View {
                 }
                 .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
 
-                if (vm.isUseDeadline) {
+                if vm.isUseDeadline {
                     DatePicker("Deadline",
                                selection: Binding<Date>(get: {self.vm.todo.deadlineDate ?? Date()}, set: {self.vm.todo.deadlineDate = $0})
                     )
