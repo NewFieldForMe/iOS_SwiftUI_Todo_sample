@@ -30,7 +30,7 @@ extension TodoData {
     var deadlineDateString: String? {
         guard let deadlineDate = deadlineDate else { return nil }
         let formatter = DateFormatter()
-        formatter.dateStyle = .full
+        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "MdkHm", options: 0, locale: Locale.current)
         return formatter.string(from: deadlineDate)
     }
 }

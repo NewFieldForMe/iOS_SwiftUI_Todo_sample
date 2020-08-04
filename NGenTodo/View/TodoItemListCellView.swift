@@ -11,10 +11,20 @@ import SwiftUI
 struct TodoItemListCellView: View {
     @ObservedObject var item: TodoData
     var body: some View {
-        HStack {
-            Text(item.title)
-            Spacer()
-            item.deadlineDateString.map { Text($0) }
-        }
+        VStack {
+            HStack {
+                Text(item.title)
+                Spacer()
+            }
+            HStack {
+                Spacer()
+                item.deadlineDateString.map {
+                    Text($0)
+                        .font(.system(size: 14))
+                        .foregroundColor(.gray)
+                }
+            }
+        }.padding()
     }
+
 }
