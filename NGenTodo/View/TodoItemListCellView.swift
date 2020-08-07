@@ -10,6 +10,7 @@ import SwiftUI
 
 struct TodoItemListCellView: View {
     @ObservedObject var item: TodoData
+
     var body: some View {
         VStack {
             HStack {
@@ -19,12 +20,39 @@ struct TodoItemListCellView: View {
             HStack {
                 Spacer()
                 item.deadlineDateString.map {
-                    Text($0)
-                        .font(.system(size: 14))
-                        .foregroundColor(.gray)
+                    item.isOverDeadline ?
+                        ViewBuilder.buildEither(first: OverDeadlineView(deadlineString: $0)) :
+                        ViewBuilder.buildEither(second: DeadlineView(deadlineString: $0))
                 }
             }
         }.padding()
     }
 
+}
+
+struct OverDeadlineView: View {
+    var deadlineString: String
+    var body: some View {
+        HStack {
+            Image(systemName: "bell.circle")
+                .font(.system(size: 28))
+                .foregroundColor(.white)
+            Text(deadlineString)
+                .font(.system(size: 14))
+                .fontWeight(.bold)
+                .foregroundColor(.white)
+        }
+        .padding(8)
+        .background(Color.red)
+        .cornerRadius(8)
+    }
+}
+
+struct DeadlineView: View {
+    var deadlineString: String
+    var body: some View {
+        Text(deadlineString)
+            .font(.system(size: 14))
+            .foregroundColor(.gray)
+    }
 }
