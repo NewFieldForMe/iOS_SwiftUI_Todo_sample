@@ -33,4 +33,9 @@ extension TodoData {
         formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "MdkHm", options: 0, locale: Locale.current)
         return formatter.string(from: deadlineDate)
     }
+
+    var isOverDeadline: Bool {
+        guard let deadline = deadlineDate else { return false }
+        return deadline < Date()
+    }
 }
