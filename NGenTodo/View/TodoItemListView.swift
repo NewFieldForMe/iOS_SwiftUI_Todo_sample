@@ -29,7 +29,13 @@ struct TodoItemListView: View {
                     .onMove(perform: self.vm.move)
                 }
                 .onAppear(perform: self.vm.onAppear)
-                .navigationBarItems(trailing: EditButton())
+                .navigationBarItems(leading: (
+                    Button(action: {
+                        print("tap!!")
+                    }, label: {
+                        Image(systemName: "line.horizontal.3")
+                            .imageScale(.large)
+                    })), trailing: EditButton())
 
                 FloatingButtonView() {
                     self.showingAddTodo.toggle()
