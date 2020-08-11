@@ -10,6 +10,7 @@ import SwiftUI
 
 struct TodoItemListView: View {
     @State var showingAddTodo = false
+    @State var isMenuOpen = false
     @ObservedObject var vm: TodoListViewModel
 
     init() {
@@ -17,8 +18,8 @@ struct TodoItemListView: View {
     }
 
     var body: some View {
-        return NavigationView {
-            ZStack {
+        return ZStack {
+            NavigationView {
                 List {
                     ForEach(vm.todos) { item in
                         NavigationLink(destination: InputTodoView(item)) {
@@ -29,22 +30,26 @@ struct TodoItemListView: View {
                     .onMove(perform: self.vm.move)
                 }
                 .onAppear(perform: self.vm.onAppear)
+                .navigationBarTitle("Todo List")
                 .navigationBarItems(leading: (
                     Button(action: {
-                        print("tap!!")
+                        self.isMenuOpen.toggle()
                     }, label: {
                         Image(systemName: "line.horizontal.3")
                             .imageScale(.large)
                     })), trailing: EditButton())
+            }
 
-                FloatingButtonView() {
-                    self.showingAddTodo.toggle()
-                }.sheet(isPresented: $showingAddTodo) {
-                    NavigationView {
-                        InputTodoView().onDisappear(perform: self.vm.onAppear)
-                    }
+            FloatingButtonView() {
+                self.showingAddTodo.toggle()
+            }.sheet(isPresented: $showingAddTodo) {
+                NavigationView {
+                    InputTodoView().onDisappear(perform: self.vm.onAppear)
                 }
-            }.navigationBarTitle("Todo List")
+            }
+
+            TodoListSideMenu(isOpen: self.$isMenuOpen)
+                .edgesIgnoringSafeArea(.all)
         }
     }
 }
