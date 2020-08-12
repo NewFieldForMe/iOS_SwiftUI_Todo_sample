@@ -24,12 +24,33 @@ struct TodoListSideMenu: View {
             }
 
             HStack {
-                List {
-                    Text("hogehoge1")
-                    Text("hogehoge2")
-                    Text("hogehoge3")
+                VStack {
+                    HStack {
+                        Image(systemName: "person")
+                            .foregroundColor(.gray)
+                            .imageScale(.large)
+                        Text("Profile")
+                            .foregroundColor(.gray)
+                            .font(.headline)
+                        Spacer()
+                    }
+                    .padding(.top, 100)
+                    .padding(.leading, 30)
+                    HStack {
+                        Image(systemName: "gear")
+                            .foregroundColor(.gray)
+                            .imageScale(.large)
+                        Text("Settings")
+                            .foregroundColor(.gray)
+                            .font(.headline)
+                        Spacer()
+                    }
+                    .padding(.top, 30)
+                    .padding(.leading, 30)
+                    Spacer()
                 }
                 .frame(width: width)
+                .background(Color.white)
                 .offset(x: self.isOpen ? 0 : -self.width)
                 .animation(.easeIn(duration: 0.25))
                 Spacer()
