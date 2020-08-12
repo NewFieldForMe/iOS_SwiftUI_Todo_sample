@@ -17,8 +17,8 @@ struct TodoListSideMenu: View {
                 EmptyView()
             }
             .background(Color.gray.opacity(0.3))
-            .animation(.easeIn(duration: 0.25))
             .opacity(self.isOpen ? 1.0 : 0.0)
+            .animation(.easeIn(duration: 0.25))
             .onTapGesture {
                 self.isOpen = false
             }
@@ -31,6 +31,7 @@ struct TodoListSideMenu: View {
                 }
                 .frame(width: width)
                 .offset(x: self.isOpen ? 0 : -self.width)
+                .animation(.easeIn(duration: 0.25))
                 Spacer()
             }
         }
