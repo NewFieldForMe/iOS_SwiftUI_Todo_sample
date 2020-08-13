@@ -49,4 +49,22 @@ class TodoListViewModel: ObservableObject {
             todo.order = index
         }
     }
+
+    func sortTodoByTitle() {
+        todos = todos.sorted(by: { (a, b) -> Bool in
+            return a.title < b.title
+        })
+        setOrder()
+        CoreDataService.save()
+    }
+
+    func sortTodoByDeadline() {
+        todos = todos.sorted(by: { (a, b) -> Bool in
+            guard let aDeadline = a.deadlineDate else { return false }
+            guard let bDeadline = b.deadlineDate else { return true }
+            return aDeadline < bDeadline
+        })
+        setOrder()
+        CoreDataService.save()
+    }
 }
