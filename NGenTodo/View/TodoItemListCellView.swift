@@ -37,10 +37,12 @@ struct OverDeadlineView: View {
             Image(systemName: "bell.circle")
                 .font(.system(size: 28))
                 .foregroundColor(.white)
+                .frame(width: 30.0)
             Text(deadlineString)
                 .font(.system(size: 14))
                 .fontWeight(.bold)
                 .foregroundColor(.white)
+                .frame(width: 90.0)
         }
         .padding(8)
         .background(Color.red)
