@@ -28,60 +28,11 @@ struct TodoListSideMenu: View {
 
             HStack {
                 VStack {
-                    HStack {
-                        Image(systemName: "person")
-                            .foregroundColor(.gray)
-                            .imageScale(.large)
-                            .frame(width: 30.0)
-                        Text("Profile")
-                            .foregroundColor(.gray)
-                            .font(.headline)
-                        Spacer()
-                    }
-                    .padding(.top, 100)
-                    .padding(.leading, 30)
-                    HStack {
-                        Image(systemName: "gear")
-                            .foregroundColor(.gray)
-                            .imageScale(.large)
-                            .frame(width: 30.0)
-                        Text("Settings")
-                            .foregroundColor(.gray)
-                            .font(.headline)
-                        Spacer()
-                    }
-                    .padding(.top, 30)
-                    .padding(.leading, 30)
-                    HStack {
-                        Image(systemName: "arrow.up.arrow.down.circle")
-                            .foregroundColor(.gray)
-                            .imageScale(.large)
-                            .frame(width: 30.0)
-                        Text("Sort By Title")
-                            .foregroundColor(.gray)
-                            .font(.headline)
-                        Spacer()
-                    }
-                    .padding(.top, 30)
-                    .padding(.leading, 30)
-                    .onTapGesture {
-                        self.sortByTitle()
-                    }
-                    HStack {
-                        Image(systemName: "arrow.up.arrow.down.circle")
-                            .foregroundColor(.gray)
-                            .imageScale(.large)
-                            .frame(width: 30.0)
-                        Text("Sort By Deadline")
-                            .foregroundColor(.gray)
-                            .font(.headline)
-                        Spacer()
-                    }
-                    .padding(.top, 30)
-                    .padding(.leading, 30)
-                    .onTapGesture {
-                        self.sortByDeadline()
-                    }
+                    SideMenuContentView(imageSystemName: "person", text: "Profile", onTapGesture: nil)
+                        .padding(.top, 100)
+                    SideMenuContentView(imageSystemName: "gear", text: "Settings", onTapGesture: nil)
+                    SideMenuContentView(imageSystemName: "arrow.up.arrow.down.circle", text: "Sort By Title", onTapGesture: self.sortByTitle)
+                    SideMenuContentView(imageSystemName: "arrow.up.arrow.down.circle", text: "Sort By Deadline", onTapGesture: self.sortByDeadline)
                     Spacer()
                 }
                 .frame(width: width)
@@ -94,8 +45,32 @@ struct TodoListSideMenu: View {
     }
 }
 
+fileprivate struct SideMenuContentView: View {
+    let imageSystemName: String
+    let text: String
+    let onTapGesture: (() -> Void)?
+    var body: some View {
+        HStack {
+            Image(systemName: imageSystemName)
+                .foregroundColor(.gray)
+                .imageScale(.large)
+                .frame(width: 30.0)
+            Text(text)
+                .foregroundColor(.gray)
+                .font(.headline)
+            Spacer()
+        }
+        .padding(.top, 30)
+        .padding(.leading, 30)
+        .onTapGesture {
+            self.onTapGesture?()
+        }
+    }
+}
+
 struct TodoListSideMenu_Previews: PreviewProvider {
     static var previews: some View {
         TodoListSideMenu(isOpen: .constant(true), sortByTitle: { }, sortByDeadline: { })
     }
 }
+
