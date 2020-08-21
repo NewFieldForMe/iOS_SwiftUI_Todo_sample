@@ -51,7 +51,8 @@ struct TodoItemListView: View {
             TodoListSideMenu(
                 isOpen: self.$isMenuOpen,
                 sortByTitle: vm.sortTodoByTitle,
-                sortByDeadline: vm.sortTodoByDeadline)
+                sortByDeadline: vm.sortTodoByDeadline,
+                switchDarkMode: vm.switchDarkMode)
                 .edgesIgnoringSafeArea(.all)
         }
     }

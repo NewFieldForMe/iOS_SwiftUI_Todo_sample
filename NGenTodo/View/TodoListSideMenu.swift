@@ -12,6 +12,7 @@ struct TodoListSideMenu: View {
     @Binding var isOpen: Bool
     let sortByTitle: (() -> Void)
     let sortByDeadline: (() -> Void)
+    let switchDarkMode: (() -> Void)
     let width: CGFloat = 270
 
     var body: some View {
@@ -33,6 +34,7 @@ struct TodoListSideMenu: View {
                     SideMenuContentView(imageSystemName: "gear", text: "Settings", onTapGesture: nil)
                     SideMenuContentView(imageSystemName: "arrow.up.arrow.down.circle", text: "Sort By Title", onTapGesture: self.sortByTitle)
                     SideMenuContentView(imageSystemName: "arrow.up.arrow.down.circle", text: "Sort By Deadline", onTapGesture: self.sortByDeadline)
+                    SideMenuContentView(imageSystemName: "moon.fill", text: "Change DarkMode", onTapGesture: switchDarkMode)
                     Spacer()
                 }
                 .frame(width: width)
@@ -70,7 +72,7 @@ fileprivate struct SideMenuContentView: View {
 
 struct TodoListSideMenu_Previews: PreviewProvider {
     static var previews: some View {
-        TodoListSideMenu(isOpen: .constant(true), sortByTitle: { }, sortByDeadline: { })
+        TodoListSideMenu(isOpen: .constant(true), sortByTitle: { }, sortByDeadline: { }, switchDarkMode: { })
     }
 }
 
