@@ -16,6 +16,7 @@
 		8E0333D124B0639000A399D0 /* NGenTodoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0333D024B0639000A399D0 /* NGenTodoTests.swift */; };
 		8E5351E124B5D1A200ACBFA8 /* NGenTodo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8E5351DF24B5D1A100ACBFA8 /* NGenTodo.xcdatamodeld */; };
 		8E8F73A624E23C3900761345 /* TodoListSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8F73A524E23C3900761345 /* TodoListSideMenu.swift */; };
+		8EC9D5A624EFD00800F41426 /* DarkModeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC9D5A524EFD00800F41426 /* DarkModeModel.swift */; };
 		8ECC31BB24D8077200C5D001 /* TodoItemListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECC31BA24D8077200C5D001 /* TodoItemListCellView.swift */; };
 		8EEB97B524C342BA004ABDBF /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEB97B424C342BA004ABDBF /* CoreDataService.swift */; };
 		8EEB97B824C3453E004ABDBF /* TodoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEB97B724C3453E004ABDBF /* TodoListViewModel.swift */; };
@@ -51,6 +52,7 @@
 		8E0333D224B0639000A399D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E5351E024B5D1A200ACBFA8 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		8E8F73A524E23C3900761345 /* TodoListSideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListSideMenu.swift; sourceTree = "<group>"; };
+		8EC9D5A524EFD00800F41426 /* DarkModeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeModel.swift; sourceTree = "<group>"; };
 		8ECC31BA24D8077200C5D001 /* TodoItemListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemListCellView.swift; sourceTree = "<group>"; };
 		8EEB97B424C342BA004ABDBF /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		8EEB97B724C3453E004ABDBF /* TodoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewModel.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			children = (
 				8EFE300524C1B873001F46F4 /* TodoData+CoreDataClass.swift */,
 				8EFE300624C1B873001F46F4 /* TodoData+CoreDataProperties.swift */,
+				8EC9D5A524EFD00800F41426 /* DarkModeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				8EF6C6C724B312E60008CF70 /* FloatingButtonView.swift in Sources */,
 				8E8F73A624E23C3900761345 /* TodoListSideMenu.swift in Sources */,
 				8E0333BA24B0638F00A399D0 /* AppDelegate.swift in Sources */,
+				8EC9D5A624EFD00800F41426 /* DarkModeModel.swift in Sources */,
 				926DB0DD24B0C26F00130FF6 /* TodoItemListView.swift in Sources */,
 				8ECC31BB24D8077200C5D001 /* TodoItemListCellView.swift in Sources */,
 				8E5351E124B5D1A200ACBFA8 /* NGenTodo.xcdatamodeld in Sources */,

@@ -7,3 +7,12 @@
 //
 
 import Foundation
+
+struct DarkModeModel {
+    static var isDark: Bool = true {
+        didSet {
+            guard let window = SceneDelegate.shared?.window else { return }
+            window.overrideUserInterfaceStyle = isDark ? .dark : .light
+        }
+    }
+}
