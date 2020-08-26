@@ -9,10 +9,19 @@
 import Foundation
 
 struct DarkModeModel {
-    static var isDark: Bool = true {
-        didSet {
-            guard let window = SceneDelegate.shared?.window else { return }
-            window.overrideUserInterfaceStyle = isDark ? .dark : .light
+    static var isDark: Bool {
+        get {
+            return UserDefaultsService.isDarkMode
         }
+        set {
+            UserDefaultsService.isDarkMode = newValue
+            reflectDarkMode()
+        }
+    }
+
+    static func reflectDarkMode() {
+        let isDarkMode = UserDefaultsService.isDarkMode
+        guard let window = SceneDelegate.shared?.window else { return }
+        window.overrideUserInterfaceStyle = isDarkMode ? .dark : .light
     }
 }
