@@ -35,7 +35,7 @@ struct TodoListSideMenu: View {
                     SideMenuContentView(imageSystemName: "arrow.up.arrow.down.circle", text: "Sort By Title", onTapGesture: self.sortByTitle)
                     SideMenuContentView(imageSystemName: "arrow.up.arrow.down.circle", text: "Sort By Deadline", onTapGesture: self.sortByDeadline)
                     Spacer()
-                    SideMenuContentView(imageSystemName: "moon.fill", text: "Change DarkMode", onTapGesture: switchDarkMode)
+                    SideMenuContentView(imageSystemName: self.switchDarkModeSystemName, text: "Change DarkMode", onTapGesture: switchDarkMode)
                     Spacer()
                         .frame(height: 66.0)
                 }
@@ -45,6 +45,14 @@ struct TodoListSideMenu: View {
                 .animation(.easeIn(duration: 0.25))
                 Spacer()
             }
+        }
+    }
+}
+
+private extension TodoListSideMenu {
+    var switchDarkModeSystemName: String {
+        get {
+            return DarkModeModel.isDark ? "moon.fill" : "sun.max.fill"
         }
     }
 }
