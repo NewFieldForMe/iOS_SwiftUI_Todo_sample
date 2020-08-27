@@ -12,7 +12,7 @@ import Combine
 class TodoListSideMenuViewModel: ObservableObject {
     @Published var darkModeModel = DarkModeModel()
     @Published var darkModeSystemName: String = ""
-    var bag = Set<AnyCancellable>()
+    private var bag = Set<AnyCancellable>()
 
     init() {
         self.darkModeModel.$isDark.sink(receiveValue: { [weak self] isDark in
