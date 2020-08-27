@@ -14,6 +14,7 @@
 		8E0333C324B0639000A399D0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E0333C224B0639000A399D0 /* Preview Assets.xcassets */; };
 		8E0333C624B0639000A399D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E0333C424B0639000A399D0 /* LaunchScreen.storyboard */; };
 		8E0333D124B0639000A399D0 /* NGenTodoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0333D024B0639000A399D0 /* NGenTodoTests.swift */; };
+		8E12FA7B24F790A7006133F0 /* TodoListSideMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E12FA7A24F790A7006133F0 /* TodoListSideMenuViewModel.swift */; };
 		8E5351E124B5D1A200ACBFA8 /* NGenTodo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8E5351DF24B5D1A100ACBFA8 /* NGenTodo.xcdatamodeld */; };
 		8E735D2C24F63D2B0078FA65 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E735D2B24F63D2B0078FA65 /* UserDefaultsService.swift */; };
 		8E8F73A624E23C3900761345 /* TodoListSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8F73A524E23C3900761345 /* TodoListSideMenu.swift */; };
@@ -51,6 +52,7 @@
 		8E0333CC24B0639000A399D0 /* NGenTodoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NGenTodoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E0333D024B0639000A399D0 /* NGenTodoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NGenTodoTests.swift; sourceTree = "<group>"; };
 		8E0333D224B0639000A399D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8E12FA7A24F790A7006133F0 /* TodoListSideMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListSideMenuViewModel.swift; sourceTree = "<group>"; };
 		8E5351E024B5D1A200ACBFA8 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		8E735D2B24F63D2B0078FA65 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 		8E8F73A524E23C3900761345 /* TodoListSideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListSideMenu.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			children = (
 				8EEB97B724C3453E004ABDBF /* TodoListViewModel.swift */,
 				8EEB97BA24C351DA004ABDBF /* InputTodoViewModel.swift */,
+				8E12FA7A24F790A7006133F0 /* TodoListSideMenuViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				8E5351E124B5D1A200ACBFA8 /* NGenTodo.xcdatamodeld in Sources */,
 				8EEB97B824C3453E004ABDBF /* TodoListViewModel.swift in Sources */,
 				8E0333BC24B0638F00A399D0 /* SceneDelegate.swift in Sources */,
+				8E12FA7B24F790A7006133F0 /* TodoListSideMenuViewModel.swift in Sources */,
 				8EEB97BB24C351DA004ABDBF /* InputTodoViewModel.swift in Sources */,
 				8E0333BE24B0638F00A399D0 /* ContentView.swift in Sources */,
 				8EF6C6CB24B314EA0008CF70 /* InputTodoView.swift in Sources */,

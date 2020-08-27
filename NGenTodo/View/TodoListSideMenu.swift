@@ -10,9 +10,9 @@ import SwiftUI
 
 struct TodoListSideMenu: View {
     @Binding var isOpen: Bool
+    @ObservedObject var vm: TodoListSideMenuViewModel = TodoListSideMenuViewModel()
     let sortByTitle: (() -> Void)
     let sortByDeadline: (() -> Void)
-    let switchDarkMode: (() -> Void)
     let width: CGFloat = 270
 
     var body: some View {
@@ -35,7 +35,7 @@ struct TodoListSideMenu: View {
                     SideMenuContentView(imageSystemName: "arrow.up.arrow.down.circle", text: "Sort By Title", onTapGesture: self.sortByTitle)
                     SideMenuContentView(imageSystemName: "arrow.up.arrow.down.circle", text: "Sort By Deadline", onTapGesture: self.sortByDeadline)
                     Spacer()
-                    SideMenuContentView(imageSystemName: self.switchDarkModeSystemName, text: "Change DarkMode", onTapGesture: switchDarkMode)
+                    SideMenuContentView(imageSystemName: vm.darkModeSystemName, text: "Change DarkMode", onTapGesture: vm.switchDarkMode)
                     Spacer()
                         .frame(height: 66.0)
                 }
@@ -45,14 +45,6 @@ struct TodoListSideMenu: View {
                 .animation(.easeIn(duration: 0.25))
                 Spacer()
             }
-        }
-    }
-}
-
-private extension TodoListSideMenu {
-    var switchDarkModeSystemName: String {
-        get {
-            return DarkModeModel.isDark ? "moon.fill" : "sun.max.fill"
         }
     }
 }
@@ -82,7 +74,7 @@ fileprivate struct SideMenuContentView: View {
 
 struct TodoListSideMenu_Previews: PreviewProvider {
     static var previews: some View {
-        TodoListSideMenu(isOpen: .constant(true), sortByTitle: { }, sortByDeadline: { }, switchDarkMode: { })
+        TodoListSideMenu(isOpen: .constant(true), sortByTitle: { }, sortByDeadline: { })
     }
 }
 

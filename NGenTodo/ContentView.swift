@@ -12,7 +12,7 @@ struct ContentView: View {
     var body: some View {
         TodoItemListView()
             .onAppear {
-                DarkModeModel.reflectDarkMode()
+                DarkModeModel().reflectDarkMode()
         }
     }
 }

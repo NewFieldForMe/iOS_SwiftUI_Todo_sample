@@ -67,8 +67,4 @@ class TodoListViewModel: ObservableObject {
         setOrder()
         CoreDataService.save()
     }
-
-    func switchDarkMode() {
-        DarkModeModel.isDark = !DarkModeModel.isDark
-    }
 }
