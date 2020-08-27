@@ -10,16 +10,14 @@ import SwiftUI
 import Combine
 
 class TodoListSideMenuViewModel: ObservableObject {
-    @Published var darkModeModel: DarkModeModel
+    @Published var darkModeModel = DarkModeModel()
     @Published var darkModeSystemName: String = ""
     var bag = Set<AnyCancellable>()
 
     init() {
-        let darkModeModel = DarkModeModel()
-        self.darkModeModel = darkModeModel
-        darkModeModel.$isDark.sink(receiveValue: { [weak self] isDark in
+        self.darkModeModel.$isDark.sink(receiveValue: { [weak self] isDark in
             self?.darkModeSystemName = isDark ? "moon.fill" : "sun.max.fill"
-            }).store(in: &bag)
+        }).store(in: &bag)
     }
 
     func switchDarkMode() {
