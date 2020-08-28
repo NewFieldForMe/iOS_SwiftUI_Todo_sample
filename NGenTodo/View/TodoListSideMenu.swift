@@ -40,7 +40,7 @@ struct TodoListSideMenu: View {
                         .frame(height: 66.0)
                 }
                 .frame(width: width)
-                .background(Color.white)
+                .background(Color(UIColor.systemGray6))
                 .offset(x: self.isOpen ? 0 : -self.width)
                 .animation(.easeIn(duration: 0.25))
                 Spacer()
