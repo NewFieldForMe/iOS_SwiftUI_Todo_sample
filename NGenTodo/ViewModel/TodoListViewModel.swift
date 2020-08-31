@@ -10,6 +10,8 @@ import SwiftUI
 
 class TodoListViewModel: ObservableObject {
     @Published var todos: [TodoData] = []
+    @Published var showingAddTodo = false
+    @Published var isMenuOpen = false
 
     func fetch() {
         todos = CoreDataService.fetch(TodoData.fetchRequest())?.sorted(by: { a, b in

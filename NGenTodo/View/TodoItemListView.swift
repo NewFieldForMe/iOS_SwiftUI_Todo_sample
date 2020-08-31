@@ -9,8 +9,6 @@
 import SwiftUI
 
 struct TodoItemListView: View {
-    @State var showingAddTodo = false
-    @State var isMenuOpen = false
     @ObservedObject var vm: TodoListViewModel
 
     init() {
@@ -33,7 +31,7 @@ struct TodoItemListView: View {
                 .navigationBarTitle("Todo List")
                 .navigationBarItems(leading: (
                     Button(action: {
-                        self.isMenuOpen.toggle()
+                        self.vm.isMenuOpen.toggle()
                     }, label: {
                         Image(systemName: "line.horizontal.3")
                             .imageScale(.large)
@@ -41,15 +39,15 @@ struct TodoItemListView: View {
             }
 
             FloatingButtonView() {
-                self.showingAddTodo.toggle()
-            }.sheet(isPresented: $showingAddTodo) {
+                self.vm.showingAddTodo.toggle()
+            }.sheet(isPresented: self.$vm.showingAddTodo) {
                 NavigationView {
                     InputTodoView().onDisappear(perform: self.vm.onAppear)
                 }
             }
 
             TodoListSideMenu(
-                isOpen: self.$isMenuOpen,
+                isOpen: self.$vm.isMenuOpen,
                 sortByTitle: vm.sortTodoByTitle,
                 sortByDeadline: vm.sortTodoByDeadline)
                 .edgesIgnoringSafeArea(.all)
