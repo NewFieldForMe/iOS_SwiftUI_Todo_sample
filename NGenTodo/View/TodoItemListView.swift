@@ -18,31 +18,33 @@ struct TodoItemListView: View {
     var body: some View {
         return ZStack {
             NavigationView {
-                List {
-                    ForEach(vm.todos) { item in
-                        NavigationLink(destination: InputTodoView(item)) {
-                            TodoItemListCellView(item: item)
+                ZStack {
+                    List {
+                        ForEach(vm.todos) { item in
+                            NavigationLink(destination: InputTodoView(item)) {
+                                TodoItemListCellView(item: item)
+                            }
+                        }
+                        .onDelete(perform: self.vm.delete)
+                        .onMove(perform: self.vm.move)
+                    }
+                    .onAppear(perform: self.vm.onAppear)
+                    .navigationBarTitle("Todo List")
+                    .navigationBarItems(leading: (
+                        Button(action: {
+                            self.vm.isMenuOpen.toggle()
+                        }, label: {
+                            Image(systemName: "line.horizontal.3")
+                                .imageScale(.large)
+                        })), trailing: EditButton())
+
+                    FloatingButtonView() {
+                        self.vm.showingAddTodo.toggle()
+                    }.sheet(isPresented: self.$vm.showingAddTodo) {
+                        NavigationView {
+                            InputTodoView().onDisappear(perform: self.vm.onAppear)
                         }
                     }
-                    .onDelete(perform: self.vm.delete)
-                    .onMove(perform: self.vm.move)
-                }
-                .onAppear(perform: self.vm.onAppear)
-                .navigationBarTitle("Todo List")
-                .navigationBarItems(leading: (
-                    Button(action: {
-                        self.vm.isMenuOpen.toggle()
-                    }, label: {
-                        Image(systemName: "line.horizontal.3")
-                            .imageScale(.large)
-                    })), trailing: EditButton())
-            }
-
-            FloatingButtonView() {
-                self.vm.showingAddTodo.toggle()
-            }.sheet(isPresented: self.$vm.showingAddTodo) {
-                NavigationView {
-                    InputTodoView().onDisappear(perform: self.vm.onAppear)
                 }
             }
 
