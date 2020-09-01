@@ -24,7 +24,11 @@ struct TodoItemListView: View {
                             NavigationLink(destination: InputTodoView(item)) {
                                 TodoItemListCellView(item: item)
                                     .contextMenu {
-                                        Text("hoge")
+                                        Button(action: {
+                                            self.vm.delete(item)
+                                        }, label: {
+                                            Text("Delete Todo")
+                                        })
                                 }
                             }
                         }

@@ -39,6 +39,13 @@ class TodoListViewModel: ObservableObject {
         fetch()
     }
 
+    func delete(_ item: TodoData) {
+        CoreDataService.delete(item)
+        setOrder()
+        CoreDataService.save()
+        fetch()
+    }
+
     func move(from source: IndexSet, to destination: Int) {
         todos.move(fromOffsets: source, toOffset: destination)
         setOrder()
