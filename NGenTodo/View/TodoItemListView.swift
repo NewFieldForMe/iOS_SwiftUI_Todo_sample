@@ -23,6 +23,9 @@ struct TodoItemListView: View {
                         ForEach(vm.todos) { item in
                             NavigationLink(destination: InputTodoView(item)) {
                                 TodoItemListCellView(item: item)
+                                    .contextMenu {
+                                        Text("hoge")
+                                }
                             }
                         }
                         .onDelete(perform: self.vm.delete)
