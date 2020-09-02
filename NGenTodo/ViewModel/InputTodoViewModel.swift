@@ -29,20 +29,23 @@ class InputTodoViewModel: ObservableObject {
             }
         }
     }
+    let maxOrder: Int?
 
     var hasError: Bool {
         return todo.title.isEmpty
     }
 
-    init(_ todo: TodoData? = nil) {
+    init(_ todo: TodoData? = nil, maxOrder: Int? = nil) {
         guard let todo = todo else {
             self.mode = .add
             self.todo = CoreDataService.new()
+            self.maxOrder = maxOrder
             self.todo.id = UUID()
             return
         }
         self.mode = .edit
         self.todo = todo
+        self.maxOrder = nil
     }
 
     func onAppear() {
@@ -50,13 +53,16 @@ class InputTodoViewModel: ObservableObject {
     }
 
     func save() {
-        if mode == .add {
-            todo.createDate = Date()
-        }
         if isUseDeadline == false {
             todo.deadlineDate = nil
         }
-        CoreDataService.insert(todo)
+        if mode == .add {
+            todo.createDate = Date()
+            if let maxOrder = maxOrder {
+                todo.order = maxOrder + 1
+            }
+            CoreDataService.insert(todo)
+        }
         CoreDataService.save()
     }
 

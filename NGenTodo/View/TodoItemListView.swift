@@ -49,7 +49,7 @@ struct TodoItemListView: View {
                         self.vm.showingAddTodo.toggle()
                     }.sheet(isPresented: self.$vm.showingAddTodo) {
                         NavigationView {
-                            InputTodoView().onDisappear(perform: self.vm.onAppear)
+                            InputTodoView(maxOrder: self.vm.todos.count).onDisappear(perform: self.vm.onAppear)
                         }
                     }
                 }

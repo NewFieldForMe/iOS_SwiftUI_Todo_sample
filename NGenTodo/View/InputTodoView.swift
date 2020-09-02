@@ -13,8 +13,8 @@ struct InputTodoView: View {
     @Environment(\.presentationMode) private var presentationMode
     @ObservedObject var vm: InputTodoViewModel
 
-    init(_ todo: TodoData? = nil) {
-        self.vm = InputTodoViewModel(todo)
+    init(_ todo: TodoData? = nil, maxOrder: Int? = nil) {
+        self.vm = InputTodoViewModel(todo, maxOrder: maxOrder)
         // Remove top space of form
         // https://stackoverflow.com/questions/58681243/how-to-remove-top-space-of-form-in-swiftui
         UITableView.appearance().tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: Double.leastNonzeroMagnitude))
