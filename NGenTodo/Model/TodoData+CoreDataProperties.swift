@@ -22,7 +22,7 @@ extension TodoData {
     @NSManaged public var order: Int
     @NSManaged public var createDate: Date?
     @NSManaged public var deadlineDate: Date?
-
+    @NSManaged private var state: Int
 }
 
 extension TodoData: Identifiable { }
@@ -37,5 +37,19 @@ extension TodoData {
     var isOverDeadline: Bool {
         guard let deadline = deadlineDate else { return false }
         return deadline < Date()
+    }
+
+    var todoState: TodoState {
+        get {
+            return TodoState(rawValue: state)!
+        }
+        set {
+            state = newValue.rawValue
+        }
+    }
+
+    enum TodoState: Int {
+        case ready
+        case done
     }
 }

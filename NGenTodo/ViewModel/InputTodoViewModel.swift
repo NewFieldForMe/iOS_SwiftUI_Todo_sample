@@ -41,6 +41,7 @@ class InputTodoViewModel: ObservableObject {
             self.todo = CoreDataService.new()
             self.maxOrder = maxOrder
             self.todo.id = UUID()
+            self.todo.todoState = .ready
             return
         }
         self.mode = .edit

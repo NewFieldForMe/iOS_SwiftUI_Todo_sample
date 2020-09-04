@@ -14,6 +14,10 @@ struct TodoItemListCellView: View {
     var body: some View {
         VStack {
             HStack {
+                Image(systemName: item.todoState == .ready ? "square" : "checkmark.square")
+                    .onTapGesture {
+                        self.item.todoState = .done
+                }
                 Text(item.title)
                 Spacer()
             }
