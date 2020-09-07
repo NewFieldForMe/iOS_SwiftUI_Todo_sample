@@ -22,7 +22,7 @@ struct TodoItemListView: View {
                     List {
                         ForEach(vm.todos) { item in
                             NavigationLink(destination: InputTodoView(item)) {
-                                TodoItemListCellView(item: item)
+                                TodoItemListCellView(todo: item)
                                     .contextMenu {
                                         Button(action: {
                                             self.vm.delete(item)

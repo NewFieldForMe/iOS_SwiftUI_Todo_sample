@@ -9,22 +9,26 @@
 import SwiftUI
 
 struct TodoItemListCellView: View {
-    @ObservedObject var item: TodoData
+    @ObservedObject var vm: TodoItemListCellViewModel
+
+    init(todo: TodoData) {
+        self.vm = TodoItemListCellViewModel(todo)
+    }
 
     var body: some View {
         VStack {
             HStack {
-                Image(systemName: item.todoState == .ready ? "square" : "checkmark.square")
+                Image(systemName: vm.stateSystemName)
                     .onTapGesture {
-                        self.item.todoState = .done
+                        self.vm.switchDone()
                 }
-                Text(item.title)
+                Text(vm.todo.title)
                 Spacer()
             }
             HStack {
                 Spacer()
-                item.deadlineDateString.map {
-                    item.isOverDeadline ?
+                vm.todo.deadlineDateString.map {
+                    vm.todo.isOverDeadline ?
                         ViewBuilder.buildEither(first: OverDeadlineView(deadlineString: $0)) :
                         ViewBuilder.buildEither(second: DeadlineView(deadlineString: $0))
                 }
