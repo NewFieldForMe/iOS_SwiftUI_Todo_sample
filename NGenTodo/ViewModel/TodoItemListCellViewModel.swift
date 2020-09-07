@@ -12,7 +12,6 @@ import Combine
 class TodoItemListCellViewModel: ObservableObject {
     @Published var todo: TodoData
     @Published var stateSystemName: String = ""
-    private var bag = Set<AnyCancellable>()
 
     init(_ todo: TodoData) {
         self.todo = todo
