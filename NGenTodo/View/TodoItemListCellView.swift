@@ -11,8 +11,8 @@ import SwiftUI
 struct TodoItemListCellView: View {
     @ObservedObject var vm: TodoItemListCellViewModel
 
-    init(todo: TodoData) {
-        self.vm = TodoItemListCellViewModel(todo)
+    init(todo: TodoData, refresh: @escaping () -> ()) {
+        self.vm = TodoItemListCellViewModel(todo, refresh: refresh)
     }
 
     var body: some View {

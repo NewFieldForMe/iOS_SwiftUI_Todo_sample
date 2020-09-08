@@ -23,7 +23,7 @@ struct TodoItemListView: View {
                         Section(header: Text("Ready")) {
                             ForEach(vm.todos.filter { $0.todoState == .ready }) { item in
                                 NavigationLink(destination: InputTodoView(item)) {
-                                    TodoItemListCellView(todo: item)
+                                    TodoItemListCellView(todo: item, refresh: self.vm.fetch)
                                         .contextMenu {
                                             Button(action: {
                                                 self.vm.delete(item)
@@ -40,7 +40,7 @@ struct TodoItemListView: View {
                         Section(header: Text("Done")) {
                             ForEach(vm.todos.filter { $0.todoState == .done }) { item in
                                 NavigationLink(destination: InputTodoView(item)) {
-                                    TodoItemListCellView(todo: item)
+                                    TodoItemListCellView(todo: item, refresh: self.vm.fetch)
                                         .contextMenu {
                                             Button(action: {
                                                 self.vm.delete(item)
