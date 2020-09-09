@@ -22,7 +22,9 @@ struct TodoItemListCellView: View {
                     .onTapGesture {
                         self.vm.switchDone()
                 }
+                .foregroundColor(vm.foregroundColor)
                 Text(vm.todo.title)
+                .foregroundColor(vm.foregroundColor)
                 Spacer()
             }
             HStack {

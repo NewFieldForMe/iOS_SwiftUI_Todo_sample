@@ -20,6 +20,10 @@ class TodoItemListCellViewModel: ObservableObject {
         changeStateSystemName()
     }
 
+    var foregroundColor: Color {
+        return todo.todoState == .ready ? .black : .gray
+    }
+
     func switchDone() {
         if todo.todoState == .ready {
             todo.todoState = .done
