@@ -23,6 +23,7 @@ extension TodoData {
     @NSManaged public var createDate: Date?
     @NSManaged public var deadlineDate: Date?
     @NSManaged private var state: Int
+    @NSManaged public var point: Int
 }
 
 extension TodoData: Identifiable { }
