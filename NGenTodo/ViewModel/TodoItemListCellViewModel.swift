@@ -12,11 +12,9 @@ import Combine
 class TodoItemListCellViewModel: ObservableObject {
     @Published var todo: TodoData
     @Published var stateSystemName: String = ""
-    var refresh: (() -> ())
 
-    init(_ todo: TodoData, refresh: @escaping () -> ()) {
+    init(_ todo: TodoData) {
         self.todo = todo
-        self.refresh = refresh
         changeStateSystemName()
     }
 
@@ -32,7 +30,6 @@ class TodoItemListCellViewModel: ObservableObject {
         }
         CoreDataService.save()
         changeStateSystemName()
-//        refresh()
     }
 }
 
