@@ -7,16 +7,29 @@
 //
 
 import SwiftUI
+import Combine
 
 class TodoListViewModel: ObservableObject {
-    @Published var todos: [TodoData] = []
+    var todos: [TodoData] = [] {
+        willSet {
+            objectWillChange.send()
+        }
+    }
     @Published var showingAddTodo = false
     @Published var isMenuOpen = false
+    private var bag = [AnyCancellable]()
 
     func fetch() {
         todos = CoreDataService.fetch(TodoData.fetchRequest())?.sorted(by: { a, b in
             a.order < b.order
         }) ?? []
+        todos.forEach { todo in
+            let c = todo.objectWillChange.sink(receiveValue: {
+                self.objectWillChange.send()
+            })
+            self.bag.append(c)
+        }
+
     }
 
     func onAppear() {

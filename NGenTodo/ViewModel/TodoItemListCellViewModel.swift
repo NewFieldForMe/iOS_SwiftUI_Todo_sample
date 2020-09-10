@@ -32,7 +32,7 @@ class TodoItemListCellViewModel: ObservableObject {
         }
         CoreDataService.save()
         changeStateSystemName()
-        refresh()
+//        refresh()
     }
 }
 
