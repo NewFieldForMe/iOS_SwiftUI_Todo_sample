@@ -42,6 +42,7 @@ class InputTodoViewModel: ObservableObject {
             self.maxOrder = maxOrder
             self.todo.id = UUID()
             self.todo.todoState = .ready
+            self.todo.point = 0
             return
         }
         self.mode = .edit

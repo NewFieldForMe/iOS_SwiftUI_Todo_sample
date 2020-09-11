@@ -10,6 +10,7 @@ import SwiftUI
 
 struct InputTodoView: View {
     @State var titleEditting = false
+    @State var pointEditting = false
     @Environment(\.presentationMode) private var presentationMode
     @ObservedObject var vm: InputTodoViewModel
 
@@ -28,6 +29,13 @@ struct InputTodoView: View {
                 }).textFieldStyle(RoundedBorderTextFieldStyle())
                     .shadow(color: titleEditting ? .blue : .clear, radius: 3)
                     .padding(EdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16))
+
+                TextField("Point", value: self.$vm.todo.point, formatter: NumberFormatter(), onEditingChanged: { editting in
+                    self.pointEditting = editting
+                }).textFieldStyle(RoundedBorderTextFieldStyle())
+                    .shadow(color: pointEditting ? .blue : .clear, radius: 3)
+                    .padding(EdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16))
+
                 HStack {
                     Text("Use Deadline: ")
                     Image(systemName: vm.isUseDeadline ? "checkmark.square" : "square")
