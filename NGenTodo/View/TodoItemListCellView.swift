@@ -26,6 +26,7 @@ struct TodoItemListCellView: View {
                 Text(vm.todo.title)
                 .foregroundColor(vm.foregroundColor)
                 Spacer()
+                Text(vm.todo.point.description)
             }
             HStack {
                 Spacer()

@@ -30,11 +30,12 @@ struct InputTodoView: View {
                     .shadow(color: titleEditting ? .blue : .clear, radius: 3)
                     .padding(EdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16))
 
-                TextField("Point", value: self.$vm.todo.point, formatter: NumberFormatter(), onEditingChanged: { editting in
+                TextField("Point", text: self.$vm.todo.point.IntToStrDef(0), onEditingChanged: { editting in
                     self.pointEditting = editting
                 }).textFieldStyle(RoundedBorderTextFieldStyle())
                     .shadow(color: pointEditting ? .blue : .clear, radius: 3)
                     .padding(EdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16))
+                    .keyboardType(.numberPad)
 
                 HStack {
                     Text("Use Deadline: ")
@@ -76,5 +77,16 @@ struct InputTodoView: View {
 struct InputTodoView_Previews: PreviewProvider {
     static var previews: some View {
         InputTodoView()
+    }
+}
+
+fileprivate extension Binding where Value == Int {
+    func IntToStrDef(_ def: Int) -> Binding<String> {
+        return Binding<String>(
+            get: { () -> String in
+                return String(self.wrappedValue)
+        }, set: { value in
+            self.wrappedValue = Int(value) ?? def
+        })
     }
 }
