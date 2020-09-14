@@ -19,6 +19,8 @@ extension PointData {
 
     @NSManaged public var id: UUID?
     @NSManaged public var date: Date?
-    @NSManaged public var point: Int64
+    @NSManaged public var point: Int
 
 }
+
+extension PointData: Identifiable { }

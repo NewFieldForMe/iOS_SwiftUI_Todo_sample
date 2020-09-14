@@ -25,16 +25,39 @@ class TodoItemListCellViewModel: ObservableObject {
     func switchDone() {
         if todo.todoState == .ready {
             todo.todoState = .done
+            addPointToday(todo.point)
         } else {
             todo.todoState = .ready
+            addPointToday(todo.point * -1)
         }
         CoreDataService.save()
         changeStateSystemName()
+        print("today point: \(fetchTodayPointRecord()?.point.description)")
     }
 }
 
 private extension TodoItemListCellViewModel {
     func changeStateSystemName() {
         stateSystemName = todo.todoState == .ready ? "square" : "checkmark.square"
+    }
+
+    func fetchTodayPointRecord() -> PointData? {
+        return CoreDataService.fetch(PointData.fetchRequest())?
+            .filter({ data -> Bool in
+                guard let date = data.date else { return false }
+                return Calendar.current.isDateInToday(date)
+            }).first
+    }
+
+    func addPointToday(_ point: Int) {
+        if let record = fetchTodayPointRecord() {
+            record.point += point
+        } else {
+            let record: PointData = CoreDataService.new()
+            record.date = Date()
+            record.point = point
+            CoreDataService.insert(record)
+        }
+        CoreDataService.save()
     }
 }
