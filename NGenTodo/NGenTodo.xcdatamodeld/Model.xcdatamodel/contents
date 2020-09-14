@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="PointData" representedClassName="PointData" syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="point" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
     <entity name="TodoData" representedClassName="TodoData" syncable="YES">
         <attribute name="createDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="deadlineDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -11,5 +16,6 @@
     </entity>
     <elements>
         <element name="TodoData" positionX="-63" positionY="-18" width="128" height="148"/>
+        <element name="PointData" positionX="-63" positionY="36" width="128" height="88"/>
     </elements>
 </model>
