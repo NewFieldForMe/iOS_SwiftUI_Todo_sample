@@ -21,6 +21,8 @@
 		8E5351E124B5D1A200ACBFA8 /* NGenTodo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8E5351DF24B5D1A100ACBFA8 /* NGenTodo.xcdatamodeld */; };
 		8E735D2C24F63D2B0078FA65 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E735D2B24F63D2B0078FA65 /* UserDefaultsService.swift */; };
 		8E8F73A624E23C3900761345 /* TodoListSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8F73A524E23C3900761345 /* TodoListSideMenu.swift */; };
+		8EB8343425106E6700C0BAE1 /* MainTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB8343325106E6700C0BAE1 /* MainTabBarView.swift */; };
+		8EB8343625106E9300C0BAE1 /* StatisticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB8343525106E9300C0BAE1 /* StatisticView.swift */; };
 		8EC9D5A624EFD00800F41426 /* DarkModeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EC9D5A524EFD00800F41426 /* DarkModeModel.swift */; };
 		8ECC31BB24D8077200C5D001 /* TodoItemListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ECC31BA24D8077200C5D001 /* TodoItemListCellView.swift */; };
 		8EEB97B524C342BA004ABDBF /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EEB97B424C342BA004ABDBF /* CoreDataService.swift */; };
@@ -62,6 +64,8 @@
 		8E5351E024B5D1A200ACBFA8 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		8E735D2B24F63D2B0078FA65 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 		8E8F73A524E23C3900761345 /* TodoListSideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListSideMenu.swift; sourceTree = "<group>"; };
+		8EB8343325106E6700C0BAE1 /* MainTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarView.swift; sourceTree = "<group>"; };
+		8EB8343525106E9300C0BAE1 /* StatisticView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticView.swift; sourceTree = "<group>"; };
 		8EC9D5A524EFD00800F41426 /* DarkModeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkModeModel.swift; sourceTree = "<group>"; };
 		8ECC31BA24D8077200C5D001 /* TodoItemListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemListCellView.swift; sourceTree = "<group>"; };
 		8EEB97B424C342BA004ABDBF /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
@@ -186,6 +190,8 @@
 				8EF6C6CA24B314EA0008CF70 /* InputTodoView.swift */,
 				8ECC31BA24D8077200C5D001 /* TodoItemListCellView.swift */,
 				8E8F73A524E23C3900761345 /* TodoListSideMenu.swift */,
+				8EB8343325106E6700C0BAE1 /* MainTabBarView.swift */,
+				8EB8343525106E9300C0BAE1 /* StatisticView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -300,6 +306,7 @@
 				8E5351E124B5D1A200ACBFA8 /* NGenTodo.xcdatamodeld in Sources */,
 				8E2DD2FE250F54AF00B9E013 /* PointData+CoreDataClass.swift in Sources */,
 				8E1A8F182505CF07003E4024 /* TodoItemListCellViewModel.swift in Sources */,
+				8EB8343625106E9300C0BAE1 /* StatisticView.swift in Sources */,
 				8EEB97B824C3453E004ABDBF /* TodoListViewModel.swift in Sources */,
 				8E0333BC24B0638F00A399D0 /* SceneDelegate.swift in Sources */,
 				8E12FA7B24F790A7006133F0 /* TodoListSideMenuViewModel.swift in Sources */,
@@ -307,6 +314,7 @@
 				8EEB97BB24C351DA004ABDBF /* InputTodoViewModel.swift in Sources */,
 				8E0333BE24B0638F00A399D0 /* ContentView.swift in Sources */,
 				8EF6C6CB24B314EA0008CF70 /* InputTodoView.swift in Sources */,
+				8EB8343425106E6700C0BAE1 /* MainTabBarView.swift in Sources */,
 				8E735D2C24F63D2B0078FA65 /* UserDefaultsService.swift in Sources */,
 				8EEB97B524C342BA004ABDBF /* CoreDataService.swift in Sources */,
 				8EFE300724C1B873001F46F4 /* TodoData+CoreDataClass.swift in Sources */,

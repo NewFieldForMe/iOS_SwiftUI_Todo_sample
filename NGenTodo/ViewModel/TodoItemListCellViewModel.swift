@@ -32,7 +32,6 @@ class TodoItemListCellViewModel: ObservableObject {
         }
         CoreDataService.save()
         changeStateSystemName()
-        print("today point: \(fetchTodayPointRecord()?.point.description)")
     }
 }
 
