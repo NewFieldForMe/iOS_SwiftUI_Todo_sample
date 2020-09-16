@@ -11,15 +11,19 @@ import SwiftUI
 struct StatisticView: View {
     @ObservedObject var vm = StatisticViewModel()
     var body: some View {
-        List {
-            ForEach(vm.pointsData) { (point: PointData) in
-                HStack {
-                    Text(point.date!.description)
-                    Spacer()
-                    Text(point.point.description)
+        NavigationView {
+            List {
+                ForEach(vm.pointsData) { (point: PointData) in
+                    HStack {
+                        Text(point.date!.description)
+                        Spacer()
+                        Text(point.point.description)
+                    }
                 }
             }
-        }.onAppear(perform: vm.onAppear)
+            .onAppear(perform: vm.onAppear)
+            .navigationBarTitle("Statistic")
+        }
     }
 }
 
