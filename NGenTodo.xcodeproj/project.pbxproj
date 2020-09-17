@@ -19,6 +19,7 @@
 		8E2DD2FE250F54AF00B9E013 /* PointData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2DD2FC250F54AF00B9E013 /* PointData+CoreDataClass.swift */; };
 		8E2DD2FF250F54AF00B9E013 /* PointData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2DD2FD250F54AF00B9E013 /* PointData+CoreDataProperties.swift */; };
 		8E5351E124B5D1A200ACBFA8 /* NGenTodo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8E5351DF24B5D1A100ACBFA8 /* NGenTodo.xcdatamodeld */; };
+		8E58A849251361ED00F4A501 /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E58A848251361ED00F4A501 /* DateFormatters.swift */; };
 		8E735D2C24F63D2B0078FA65 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E735D2B24F63D2B0078FA65 /* UserDefaultsService.swift */; };
 		8E8F73A624E23C3900761345 /* TodoListSideMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8F73A524E23C3900761345 /* TodoListSideMenu.swift */; };
 		8EB8343425106E6700C0BAE1 /* MainTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EB8343325106E6700C0BAE1 /* MainTabBarView.swift */; };
@@ -63,6 +64,7 @@
 		8E2DD2FC250F54AF00B9E013 /* PointData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PointData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8E2DD2FD250F54AF00B9E013 /* PointData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PointData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8E5351E024B5D1A200ACBFA8 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		8E58A848251361ED00F4A501 /* DateFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatters.swift; sourceTree = "<group>"; };
 		8E735D2B24F63D2B0078FA65 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 		8E8F73A524E23C3900761345 /* TodoListSideMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListSideMenu.swift; sourceTree = "<group>"; };
 		8EB8343325106E6700C0BAE1 /* MainTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarView.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				8EEB97B624C342BE004ABDBF /* Service */,
 				926DB0DB24B0C25900130FF6 /* View */,
 				8E53521324B5D54F00ACBFA8 /* Model */,
+				8E58A847251361D700F4A501 /* Other */,
 				8E0333B924B0638F00A399D0 /* AppDelegate.swift */,
 				8E0333BB24B0638F00A399D0 /* SceneDelegate.swift */,
 				8E0333BD24B0638F00A399D0 /* ContentView.swift */,
@@ -162,6 +165,14 @@
 				8EC9D5A524EFD00800F41426 /* DarkModeModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8E58A847251361D700F4A501 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				8E58A848251361ED00F4A501 /* DateFormatters.swift */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 		8EEB97B624C342BE004ABDBF /* Service */ = {
@@ -312,6 +323,7 @@
 				8EB8343625106E9300C0BAE1 /* StatisticView.swift in Sources */,
 				8ED6288D2511B1630042F854 /* StatisticViewModel.swift in Sources */,
 				8EEB97B824C3453E004ABDBF /* TodoListViewModel.swift in Sources */,
+				8E58A849251361ED00F4A501 /* DateFormatters.swift in Sources */,
 				8E0333BC24B0638F00A399D0 /* SceneDelegate.swift in Sources */,
 				8E12FA7B24F790A7006133F0 /* TodoListSideMenuViewModel.swift in Sources */,
 				8E2DD2FF250F54AF00B9E013 /* PointData+CoreDataProperties.swift in Sources */,

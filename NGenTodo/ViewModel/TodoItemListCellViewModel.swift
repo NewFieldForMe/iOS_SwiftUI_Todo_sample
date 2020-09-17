@@ -60,12 +60,3 @@ private extension TodoItemListCellViewModel {
         CoreDataService.save()
     }
 }
-
-class DateFormatters {
-    static let ymdFormatter: DateFormatter = {
-        let f = DateFormatter()
-        f.dateStyle = .medium
-        f.timeStyle = .none
-        return f
-    }()
-}

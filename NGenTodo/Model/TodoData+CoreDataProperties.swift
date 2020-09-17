@@ -30,9 +30,7 @@ extension TodoData: Identifiable { }
 extension TodoData {
     var deadlineDateString: String? {
         guard let deadlineDate = deadlineDate else { return nil }
-        let formatter = DateFormatter()
-        formatter.dateFormat = DateFormatter.dateFormat(fromTemplate: "MdkHm", options: 0, locale: Locale.current)
-        return formatter.string(from: deadlineDate)
+        return DateFormatters.shortDateShortTimeFormatter.string(from: deadlineDate)
     }
 
     var isOverDeadline: Bool {

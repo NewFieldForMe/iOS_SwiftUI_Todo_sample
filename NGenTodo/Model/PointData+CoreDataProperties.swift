@@ -29,7 +29,7 @@ extension PointData {
     var dateString: String {
         get {
             guard let date = date else { return "" }
-            return DateFormatters.ymdFormatter.string(from: date)
+            return DateFormatters.mediumWithoutTimeFormatter.string(from: date)
         }
     }
 }
