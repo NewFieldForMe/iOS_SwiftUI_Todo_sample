@@ -15,7 +15,7 @@ struct StatisticView: View {
             List {
                 ForEach(vm.pointsData) { (point: PointData) in
                     HStack {
-                        Text(point.date!.description)
+                        Text(point.dateString)
                         Spacer()
                         Text(point.point.description)
                     }

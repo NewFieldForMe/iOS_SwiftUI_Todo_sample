@@ -24,3 +24,12 @@ extension PointData {
 }
 
 extension PointData: Identifiable { }
+
+extension PointData {
+    var dateString: String {
+        get {
+            guard let date = date else { return "" }
+            return DateFormatters.ymdFormatter.string(from: date)
+        }
+    }
+}
