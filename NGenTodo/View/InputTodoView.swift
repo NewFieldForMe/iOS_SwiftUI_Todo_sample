@@ -14,8 +14,14 @@ struct InputTodoView: View {
     @Environment(\.presentationMode) private var presentationMode
     @ObservedObject var vm: InputTodoViewModel
 
-    init(_ todo: TodoData? = nil, maxOrder: Int? = nil) {
-        self.vm = InputTodoViewModel(todo, maxOrder: maxOrder)
+    init(todo: TodoData) {
+        self.vm = InputTodoViewModel(todo: todo)
+        // Remove top space of form
+        // https://stackoverflow.com/questions/58681243/how-to-remove-top-space-of-form-in-swiftui
+        UITableView.appearance().tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: Double.leastNonzeroMagnitude))
+    }
+    init(maxOrder: Int) {
+        self.vm = InputTodoViewModel(maxOrder: maxOrder)
         // Remove top space of form
         // https://stackoverflow.com/questions/58681243/how-to-remove-top-space-of-form-in-swiftui
         UITableView.appearance().tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: Double.leastNonzeroMagnitude))
@@ -24,13 +30,13 @@ struct InputTodoView: View {
     var body: some View {
         ZStack {
             Form {
-                TextField("Title", text: self.$vm.todo.title, onEditingChanged: { editting in
+                TextField("Title", text: self.$vm.title, onEditingChanged: { editting in
                     self.titleEditting = editting
                 }).textFieldStyle(RoundedBorderTextFieldStyle())
                     .shadow(color: titleEditting ? .blue : .clear, radius: 3)
                     .padding(EdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16))
 
-                TextField("Point", text: self.$vm.todo.point.IntToStrDef(0), onEditingChanged: { editting in
+                TextField("Point", text: self.$vm.point, onEditingChanged: { editting in
                     self.pointEditting = editting
                 }).textFieldStyle(RoundedBorderTextFieldStyle())
                     .shadow(color: pointEditting ? .blue : .clear, radius: 3)
@@ -48,7 +54,7 @@ struct InputTodoView: View {
 
                 if vm.isUseDeadline {
                     DatePicker("Deadline",
-                               selection: Binding<Date>(get: {self.vm.todo.deadlineDate ?? Date()}, set: {self.vm.todo.deadlineDate = $0})
+                               selection: Binding<Date>(get: { self.vm.deadlineDate }, set: { self.vm.deadlineDate = $0 })
                     )
                         .padding(EdgeInsets(top: 16, leading: 16, bottom: 16, trailing: 16))
                 }
@@ -76,7 +82,7 @@ struct InputTodoView: View {
 
 struct InputTodoView_Previews: PreviewProvider {
     static var previews: some View {
-        InputTodoView()
+        InputTodoView(maxOrder: 0)
     }
 }
 

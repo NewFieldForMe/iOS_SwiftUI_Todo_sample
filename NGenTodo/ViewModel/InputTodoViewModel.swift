@@ -9,9 +9,14 @@
 import SwiftUI
 
 class InputTodoViewModel: ObservableObject {
-    @Published var todo: TodoData
+    @Published var title: String
+    @Published var point: String
+    @Published var isUseDeadline: Bool
+    @Published var deadlineDate: Date
+    @Published var mode: Mode
+
     enum Mode {
-        case add
+        case add(maxOrder: Int)
         case edit
 
         var navigationTitle: String {
@@ -21,48 +26,46 @@ class InputTodoViewModel: ObservableObject {
             }
         }
     }
-    @Published var mode: Mode
-    @Published var isUseDeadline = false {
-        willSet {
-            if newValue && todo.deadlineDate == nil {
-                todo.deadlineDate = Date()
-            }
-        }
-    }
-    let maxOrder: Int?
+    private let maxOrder: Int?
+    private var todo: TodoData?
 
     var hasError: Bool {
-        return todo.title.isEmpty
+        return title.isEmpty
     }
 
-    init(_ todo: TodoData? = nil, maxOrder: Int? = nil) {
-        guard let todo = todo else {
-            self.mode = .add
-            self.todo = CoreDataService.new()
-            self.maxOrder = maxOrder
-            self.todo.id = UUID()
-            self.todo.todoState = .ready
-            self.todo.point = 0
-            return
-        }
+    init(todo: TodoData) {
         self.mode = .edit
         self.todo = todo
+        self.title = todo.title
+        self.point = todo.point.description
+        self.isUseDeadline = todo.deadlineDate != nil
+        self.deadlineDate = todo.deadlineDate ?? Date()
         self.maxOrder = nil
     }
 
-    func onAppear() {
-        self.isUseDeadline = self.todo.deadlineDate != nil
+    init(maxOrder: Int) {
+        self.mode = .add(maxOrder: maxOrder)
+        self.todo = nil
+        self.title = ""
+        self.point = ""
+        self.isUseDeadline = false
+        self.deadlineDate = Date()
+        self.maxOrder = maxOrder
     }
 
+    func onAppear() { }
+
     func save() {
-        if isUseDeadline == false {
-            todo.deadlineDate = nil
+        if todo == nil {
+            todo = CoreDataService.new()
         }
-        if mode == .add {
+        guard let todo = todo else { return }
+        todo.title = title
+        todo.point = Int(point) ?? 0
+        todo.deadlineDate = isUseDeadline == false ? nil : deadlineDate
+        if case .add(let maxOrder) = mode {
             todo.createDate = Date()
-            if let maxOrder = maxOrder {
-                todo.order = maxOrder + 1
-            }
+            todo.order = maxOrder + 1
             CoreDataService.insert(todo)
         }
         CoreDataService.save()
