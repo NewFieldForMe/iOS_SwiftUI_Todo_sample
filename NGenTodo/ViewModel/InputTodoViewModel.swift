@@ -64,6 +64,7 @@ class InputTodoViewModel: ObservableObject {
         todo.point = Int(point) ?? 0
         todo.deadlineDate = isUseDeadline == false ? nil : deadlineDate
         if case .add(let maxOrder) = mode {
+            todo.id = UUID()
             todo.createDate = Date()
             todo.order = maxOrder + 1
             CoreDataService.insert(todo)

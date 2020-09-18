@@ -53,6 +53,7 @@ private extension TodoItemListCellViewModel {
             record.point += point
         } else {
             let record: PointData = CoreDataService.new()
+            record.id = UUID()
             record.date = Date()
             record.point = point
             CoreDataService.insert(record)
