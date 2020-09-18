@@ -11,8 +11,8 @@ import SwiftUI
 struct TodoListSideMenu: View {
     @Binding var isOpen: Bool
     @ObservedObject var vm: TodoListSideMenuViewModel = TodoListSideMenuViewModel()
-    let sortByTitle: (() -> Void)
-    let sortByDeadline: (() -> Void)
+    @EnvironmentObject var todoListViewModel: TodoListViewModel
+
     let width: CGFloat = 270
 
     var body: some View {
@@ -32,8 +32,8 @@ struct TodoListSideMenu: View {
                     SideMenuContentView(imageSystemName: "person", text: "Profile", onTapGesture: nil)
                         .padding(.top, 100)
                     SideMenuContentView(imageSystemName: "gear", text: "Settings", onTapGesture: nil)
-                    SideMenuContentView(imageSystemName: "arrow.up.arrow.down.circle", text: "Sort By Title", onTapGesture: self.sortByTitle)
-                    SideMenuContentView(imageSystemName: "arrow.up.arrow.down.circle", text: "Sort By Deadline", onTapGesture: self.sortByDeadline)
+                    SideMenuContentView(imageSystemName: "arrow.up.arrow.down.circle", text: "Sort By Title", onTapGesture: self.todoListViewModel.sortTodoByTitle)
+                    SideMenuContentView(imageSystemName: "arrow.up.arrow.down.circle", text: "Sort By Deadline", onTapGesture: self.todoListViewModel.sortTodoByDeadline)
                     Spacer()
                     SideMenuContentView(imageSystemName: vm.darkModeSystemName, text: "Change DarkMode", onTapGesture: vm.switchDarkMode)
                     Spacer()
@@ -74,7 +74,7 @@ fileprivate struct SideMenuContentView: View {
 
 struct TodoListSideMenu_Previews: PreviewProvider {
     static var previews: some View {
-        TodoListSideMenu(isOpen: .constant(true), sortByTitle: { }, sortByDeadline: { })
+        TodoListSideMenu(isOpen: .constant(true))
     }
 }
 

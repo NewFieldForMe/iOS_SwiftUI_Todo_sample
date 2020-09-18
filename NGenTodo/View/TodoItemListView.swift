@@ -9,11 +9,7 @@
 import SwiftUI
 
 struct TodoItemListView: View {
-    @ObservedObject var vm: TodoListViewModel
-
-    init() {
-        vm = TodoListViewModel()
-    }
+    @EnvironmentObject var vm: TodoListViewModel
 
     var body: some View {
         return ZStack {
@@ -75,10 +71,7 @@ struct TodoItemListView: View {
                 }
             }
 
-            TodoListSideMenu(
-                isOpen: self.$vm.isMenuOpen,
-                sortByTitle: vm.sortTodoByTitle,
-                sortByDeadline: vm.sortTodoByDeadline)
+            TodoListSideMenu(isOpen: self.$vm.isMenuOpen)
                 .edgesIgnoringSafeArea(.all)
         }
     }
