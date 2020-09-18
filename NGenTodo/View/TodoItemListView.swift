@@ -70,9 +70,6 @@ struct TodoItemListView: View {
                     }
                 }
             }
-
-            TodoListSideMenu(isOpen: self.$vm.isMenuOpen)
-                .edgesIgnoringSafeArea(.all)
         }
     }
 }

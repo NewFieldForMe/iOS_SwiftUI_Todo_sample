@@ -9,22 +9,29 @@
 import SwiftUI
 
 struct MainTabBarView: View {
+    @EnvironmentObject var vm: TodoListViewModel
+
     var body: some View {
-        TabView {
-            TodoItemListView()
-                .tabItem {
-                    VStack {
-                        Image(systemName: "square.and.pencil")
-                        Text("ToDo")
-                    }
-            }.tag(1)
-            StatisticView()
-                .tabItem {
-                    VStack {
-                        Image(systemName: "s.square")
-                        Text("Statistic")
-                    }
-            }.tag(2)
+        ZStack {
+            TabView {
+                TodoItemListView()
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "square.and.pencil")
+                            Text("ToDo")
+                        }
+                }.tag(1)
+                StatisticView()
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "s.square")
+                            Text("Statistic")
+                        }
+                }.tag(2)
+            }
+
+            TodoListSideMenu(isOpen: self.$vm.isMenuOpen)
+                .edgesIgnoringSafeArea(.all)
         }
     }
 }
