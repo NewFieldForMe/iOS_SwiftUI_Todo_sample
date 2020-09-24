@@ -19,7 +19,7 @@ class TodoItemListCellViewModel: ObservableObject {
     }
 
     var foregroundColor: Color {
-        return todo.todoState == .ready ? .black : .gray
+        return todo.todoState == .ready ? .primary : .gray
     }
 
     func switchDone() {
