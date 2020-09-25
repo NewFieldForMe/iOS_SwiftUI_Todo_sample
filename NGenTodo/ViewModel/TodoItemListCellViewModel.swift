@@ -26,6 +26,8 @@ class TodoItemListCellViewModel: ObservableObject {
         if todo.todoState == .ready {
             todo.todoState = .done
             addPointToday(todo.point)
+            let generator = UINotificationFeedbackGenerator()
+            generator.notificationOccurred(.success)
         } else {
             todo.todoState = .ready
             addPointToday(todo.point * -1)
