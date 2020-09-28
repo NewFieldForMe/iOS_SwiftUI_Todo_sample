@@ -28,6 +28,14 @@ struct MainTabBarView: View {
                             Text("Statistic")
                         }
                 }.tag(2)
+                // Todo: show template view
+                StatisticView()
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "pencil.and.outline")
+                            Text("Template")
+                        }
+                }.tag(3)
             }
 
             TodoListSideMenu(isOpen: self.$vm.isMenuOpen)
