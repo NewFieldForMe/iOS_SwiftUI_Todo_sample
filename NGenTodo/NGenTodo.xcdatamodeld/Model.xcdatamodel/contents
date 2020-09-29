@@ -5,6 +5,18 @@
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="point" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
+    <entity name="TemplateData" representedClassName="TemplateData" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="order" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="TemplateTodoData" representedClassName="TemplateTodoData" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="order" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="point" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="templateId" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="TodoData" representedClassName="TodoData" syncable="YES">
         <attribute name="createDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="deadlineDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -15,7 +27,9 @@
         <attribute name="title" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="TodoData" positionX="-63" positionY="-18" width="128" height="148"/>
         <element name="PointData" positionX="-63" positionY="36" width="128" height="88"/>
+        <element name="TodoData" positionX="-63" positionY="-18" width="128" height="148"/>
+        <element name="TemplateData" positionX="-63" positionY="36" width="128" height="88"/>
+        <element name="TemplateTodoData" positionX="-54" positionY="45" width="128" height="118"/>
     </elements>
 </model>
