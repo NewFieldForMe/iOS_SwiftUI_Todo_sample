@@ -19,6 +19,7 @@
 		8E2DD2FE250F54AF00B9E013 /* PointData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2DD2FC250F54AF00B9E013 /* PointData+CoreDataClass.swift */; };
 		8E2DD2FF250F54AF00B9E013 /* PointData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2DD2FD250F54AF00B9E013 /* PointData+CoreDataProperties.swift */; };
 		8E37335025247288006E5CF5 /* TemplateListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E37334F25247288006E5CF5 /* TemplateListViewModel.swift */; };
+		8E3F3A7E252C246200222319 /* TemplateListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F3A7D252C246200222319 /* TemplateListView.swift */; };
 		8E5351E124B5D1A200ACBFA8 /* NGenTodo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8E5351DF24B5D1A100ACBFA8 /* NGenTodo.xcdatamodeld */; };
 		8E58A849251361ED00F4A501 /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E58A848251361ED00F4A501 /* DateFormatters.swift */; };
 		8E735D2C24F63D2B0078FA65 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E735D2B24F63D2B0078FA65 /* UserDefaultsService.swift */; };
@@ -69,6 +70,7 @@
 		8E2DD2FC250F54AF00B9E013 /* PointData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PointData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8E2DD2FD250F54AF00B9E013 /* PointData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PointData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8E37334F25247288006E5CF5 /* TemplateListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateListViewModel.swift; sourceTree = "<group>"; };
+		8E3F3A7D252C246200222319 /* TemplateListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateListView.swift; sourceTree = "<group>"; };
 		8E5351E024B5D1A200ACBFA8 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		8E58A848251361ED00F4A501 /* DateFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatters.swift; sourceTree = "<group>"; };
 		8E735D2B24F63D2B0078FA65 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				8E8F73A524E23C3900761345 /* TodoListSideMenu.swift */,
 				8EB8343325106E6700C0BAE1 /* MainTabBarView.swift */,
 				8EB8343525106E9300C0BAE1 /* StatisticView.swift */,
+				8E3F3A7D252C246200222319 /* TemplateListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				8EEB97B824C3453E004ABDBF /* TodoListViewModel.swift in Sources */,
 				8E58A849251361ED00F4A501 /* DateFormatters.swift in Sources */,
 				8E0333BC24B0638F00A399D0 /* SceneDelegate.swift in Sources */,
+				8E3F3A7E252C246200222319 /* TemplateListView.swift in Sources */,
 				8E12FA7B24F790A7006133F0 /* TodoListSideMenuViewModel.swift in Sources */,
 				8E2DD2FF250F54AF00B9E013 /* PointData+CoreDataProperties.swift in Sources */,
 				8E78F5CC2522CE5A00EE1FF1 /* TemplateData+CoreDataProperties.swift in Sources */,

@@ -12,6 +12,7 @@ struct ContentView: View {
     var body: some View {
         MainTabBarView()
             .environmentObject(TodoListViewModel())
+            .environmentObject(TemplateListViewModel())
             .onAppear {
                 DarkModeModel().reflectDarkMode()
         }

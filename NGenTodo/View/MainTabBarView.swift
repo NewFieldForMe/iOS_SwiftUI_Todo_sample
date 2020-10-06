@@ -28,8 +28,7 @@ struct MainTabBarView: View {
                             Text("Statistic")
                         }
                 }.tag(2)
-                // Todo: show template view
-                StatisticView()
+                TemplateListView()
                     .tabItem {
                         VStack {
                             Image(systemName: "pencil.and.outline")
