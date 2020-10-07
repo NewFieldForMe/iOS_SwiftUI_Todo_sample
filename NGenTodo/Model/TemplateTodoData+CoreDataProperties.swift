@@ -18,8 +18,8 @@ extension TemplateTodoData {
     }
 
     @NSManaged public var id: UUID?
-    @NSManaged public var order: Int64
-    @NSManaged public var point: Int64
+    @NSManaged public var order: Int
+    @NSManaged public var point: Int
     @NSManaged public var templateId: UUID?
     @NSManaged public var title: String?
     @NSManaged public var template: TemplateData?

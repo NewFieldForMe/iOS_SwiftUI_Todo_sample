@@ -18,7 +18,7 @@ extension TemplateData {
     }
 
     @NSManaged public var id: UUID?
-    @NSManaged public var order: Int64
+    @NSManaged public var order: Int
     @NSManaged public var title: String?
     @NSManaged public var templateTodoData: NSSet?
 
