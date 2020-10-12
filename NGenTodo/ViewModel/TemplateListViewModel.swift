@@ -9,7 +9,7 @@
 import SwiftUI
 
 class TemplateListViewModel: ObservableObject {
-    var templates: [TemplateData] = []
+    @Published var templates: [TemplateData] = []
 
     init() {
         fetch()

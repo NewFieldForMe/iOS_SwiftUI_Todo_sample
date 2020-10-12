@@ -11,7 +11,15 @@ import SwiftUI
 struct TemplateListView: View {
     @EnvironmentObject var vm: TemplateListViewModel
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            ForEach(vm.templates) { template in
+                HStack {
+                    Text(template.title!)
+                    Spacer()
+                    Text(template.templateTodoData?.count.description ?? "0")
+                }
+            }
+        }
     }
 }
 
