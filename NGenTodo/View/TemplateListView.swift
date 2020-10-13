@@ -13,11 +13,7 @@ struct TemplateListView: View {
     var body: some View {
         List {
             ForEach(vm.templates) { template in
-                HStack {
-                    Text(template.title!)
-                    Spacer()
-                    Text(template.templateTodoData?.count.description ?? "0")
-                }
+                TemplateListCellView(template: template)
             }
         }
     }
