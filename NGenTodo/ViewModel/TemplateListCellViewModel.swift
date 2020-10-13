@@ -9,7 +9,16 @@
 import SwiftUI
 
 class TemplateListCellViewModel: ObservableObject {
-    @Published var template: TemplateData
+    private let template: TemplateData
+
+    var title: String {
+        return template.title ?? ""
+    }
+
+    var todoCountText: String {
+        guard let countString = template.templateTodoData?.count.description else { return "" }
+        return "Todo: " + countString
+    }
 
     init(_ template: TemplateData) {
         self.template = template
