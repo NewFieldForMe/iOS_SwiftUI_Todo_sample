@@ -20,6 +20,8 @@
 		8E2DD2FF250F54AF00B9E013 /* PointData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E2DD2FD250F54AF00B9E013 /* PointData+CoreDataProperties.swift */; };
 		8E37335025247288006E5CF5 /* TemplateListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E37334F25247288006E5CF5 /* TemplateListViewModel.swift */; };
 		8E3F3A7E252C246200222319 /* TemplateListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3F3A7D252C246200222319 /* TemplateListView.swift */; };
+		8E442D1A2535429900DBE30F /* TemplateListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E442D192535429900DBE30F /* TemplateListCellView.swift */; };
+		8E442D1E253542B400DBE30F /* TemplateListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E442D1D253542B400DBE30F /* TemplateListCellViewModel.swift */; };
 		8E5351E124B5D1A200ACBFA8 /* NGenTodo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8E5351DF24B5D1A100ACBFA8 /* NGenTodo.xcdatamodeld */; };
 		8E58A849251361ED00F4A501 /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E58A848251361ED00F4A501 /* DateFormatters.swift */; };
 		8E735D2C24F63D2B0078FA65 /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E735D2B24F63D2B0078FA65 /* UserDefaultsService.swift */; };
@@ -71,6 +73,8 @@
 		8E2DD2FD250F54AF00B9E013 /* PointData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PointData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8E37334F25247288006E5CF5 /* TemplateListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateListViewModel.swift; sourceTree = "<group>"; };
 		8E3F3A7D252C246200222319 /* TemplateListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateListView.swift; sourceTree = "<group>"; };
+		8E442D192535429900DBE30F /* TemplateListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateListCellView.swift; sourceTree = "<group>"; };
+		8E442D1D253542B400DBE30F /* TemplateListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateListCellViewModel.swift; sourceTree = "<group>"; };
 		8E5351E024B5D1A200ACBFA8 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		8E58A848251361ED00F4A501 /* DateFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatters.swift; sourceTree = "<group>"; };
 		8E735D2B24F63D2B0078FA65 /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
@@ -209,6 +213,7 @@
 				8E1A8F172505CF07003E4024 /* TodoItemListCellViewModel.swift */,
 				8ED6288C2511B1630042F854 /* StatisticViewModel.swift */,
 				8E37334F25247288006E5CF5 /* TemplateListViewModel.swift */,
+				8E442D1D253542B400DBE30F /* TemplateListCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -224,6 +229,7 @@
 				8EB8343325106E6700C0BAE1 /* MainTabBarView.swift */,
 				8EB8343525106E9300C0BAE1 /* StatisticView.swift */,
 				8E3F3A7D252C246200222319 /* TemplateListView.swift */,
+				8E442D192535429900DBE30F /* TemplateListCellView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -348,6 +354,7 @@
 				8E3F3A7E252C246200222319 /* TemplateListView.swift in Sources */,
 				8E12FA7B24F790A7006133F0 /* TodoListSideMenuViewModel.swift in Sources */,
 				8E2DD2FF250F54AF00B9E013 /* PointData+CoreDataProperties.swift in Sources */,
+				8E442D1A2535429900DBE30F /* TemplateListCellView.swift in Sources */,
 				8E78F5CC2522CE5A00EE1FF1 /* TemplateData+CoreDataProperties.swift in Sources */,
 				8EEB97BB24C351DA004ABDBF /* InputTodoViewModel.swift in Sources */,
 				8E0333BE24B0638F00A399D0 /* ContentView.swift in Sources */,
@@ -358,6 +365,7 @@
 				8EEB97B524C342BA004ABDBF /* CoreDataService.swift in Sources */,
 				8EFE300724C1B873001F46F4 /* TodoData+CoreDataClass.swift in Sources */,
 				8EFE300824C1B873001F46F4 /* TodoData+CoreDataProperties.swift in Sources */,
+				8E442D1E253542B400DBE30F /* TemplateListCellViewModel.swift in Sources */,
 				8E78F5C92522CE5A00EE1FF1 /* TemplateTodoData+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
