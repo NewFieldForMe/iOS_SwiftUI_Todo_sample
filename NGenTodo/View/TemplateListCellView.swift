@@ -17,7 +17,9 @@ struct TemplateListCellView: View {
 
     var body: some View {
         HStack {
+            Text(vm.title)
             Spacer()
+            Text(vm.todoCountText)
         }
     }
 }
