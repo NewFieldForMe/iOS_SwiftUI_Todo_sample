@@ -7,20 +7,26 @@
 //
 
 import SwiftUI
+import Combine
 
 class TemplateListCellViewModel: ObservableObject {
-    private let template: TemplateData
-
-    var title: String {
-        return template.title ?? ""
-    }
-
-    var todoCountText: String {
-        guard let countString = template.templateTodoData?.count.description else { return "" }
-        return "Todo: " + countString
-    }
+    private var template: TemplateData
+    private var bag = [AnyCancellable]()
+    @Published private(set) var title: String = ""
+    @Published private(set) var todoCountText: String = ""
 
     init(_ template: TemplateData) {
         self.template = template
+
+        template.publisher(for: \.title)
+            .compactMap { $0 ?? "" }
+            .assign(to: \.title, on: self)
+            .store(in: &bag)
+
+        template.publisher(for: \.templateTodoData)
+            .compactMap { $0?.count.description }
+            .map { "Todo: " + $0 }
+            .assign(to: \.todoCountText, on: self)
+            .store(in: &bag)
     }
 }
