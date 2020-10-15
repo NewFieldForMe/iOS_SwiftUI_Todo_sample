@@ -171,17 +171,120 @@
 			path = NGenTodoTests;
 			sourceTree = "<group>";
 		};
-		8E53521324B5D54F00ACBFA8 /* Model */ = {
+		8E3D3B742538593D00F025AC /* TodoList */ = {
+			isa = PBXGroup;
+			children = (
+				926DB0DC24B0C26F00130FF6 /* TodoItemListView.swift */,
+				8ECC31BA24D8077200C5D001 /* TodoItemListCellView.swift */,
+				8E8F73A524E23C3900761345 /* TodoListSideMenu.swift */,
+			);
+			path = TodoList;
+			sourceTree = "<group>";
+		};
+		8E3D3B752538597100F025AC /* TodoList */ = {
+			isa = PBXGroup;
+			children = (
+				8EEB97B724C3453E004ABDBF /* TodoListViewModel.swift */,
+				8E12FA7A24F790A7006133F0 /* TodoListSideMenuViewModel.swift */,
+				8E1A8F172505CF07003E4024 /* TodoItemListCellViewModel.swift */,
+			);
+			path = TodoList;
+			sourceTree = "<group>";
+		};
+		8E3D3B782538597D00F025AC /* InputTodo */ = {
+			isa = PBXGroup;
+			children = (
+				8EF6C6CA24B314EA0008CF70 /* InputTodoView.swift */,
+			);
+			path = InputTodo;
+			sourceTree = "<group>";
+		};
+		8E3D3B79253859AD00F025AC /* InputTodo */ = {
+			isa = PBXGroup;
+			children = (
+				8EEB97BA24C351DA004ABDBF /* InputTodoViewModel.swift */,
+			);
+			path = InputTodo;
+			sourceTree = "<group>";
+		};
+		8E3D3B7A253859C000F025AC /* Statistic */ = {
+			isa = PBXGroup;
+			children = (
+				8ED6288C2511B1630042F854 /* StatisticViewModel.swift */,
+			);
+			path = Statistic;
+			sourceTree = "<group>";
+		};
+		8E3D3B7B253859D000F025AC /* Statistic */ = {
+			isa = PBXGroup;
+			children = (
+				8EB8343525106E9300C0BAE1 /* StatisticView.swift */,
+			);
+			path = Statistic;
+			sourceTree = "<group>";
+		};
+		8E3D3B7C253859E300F025AC /* UIParts */ = {
+			isa = PBXGroup;
+			children = (
+				8EB8343325106E6700C0BAE1 /* MainTabBarView.swift */,
+				8EF6C6C624B312E60008CF70 /* FloatingButtonView.swift */,
+			);
+			path = UIParts;
+			sourceTree = "<group>";
+		};
+		8E3D3B7F253859F900F025AC /* TemplateList */ = {
+			isa = PBXGroup;
+			children = (
+				8E37334F25247288006E5CF5 /* TemplateListViewModel.swift */,
+				8E442D1D253542B400DBE30F /* TemplateListCellViewModel.swift */,
+			);
+			path = TemplateList;
+			sourceTree = "<group>";
+		};
+		8E3D3B8225385A1600F025AC /* TemplateList */ = {
+			isa = PBXGroup;
+			children = (
+				8E3F3A7D252C246200222319 /* TemplateListView.swift */,
+				8E442D192535429900DBE30F /* TemplateListCellView.swift */,
+			);
+			path = TemplateList;
+			sourceTree = "<group>";
+		};
+		8E3D3B8325385A2800F025AC /* TodoData */ = {
+			isa = PBXGroup;
+			children = (
+				8EFE300524C1B873001F46F4 /* TodoData+CoreDataClass.swift */,
+				8EFE300624C1B873001F46F4 /* TodoData+CoreDataProperties.swift */,
+			);
+			path = TodoData;
+			sourceTree = "<group>";
+		};
+		8E3D3B8425385A3500F025AC /* PointData */ = {
+			isa = PBXGroup;
+			children = (
+				8E2DD2FC250F54AF00B9E013 /* PointData+CoreDataClass.swift */,
+				8E2DD2FD250F54AF00B9E013 /* PointData+CoreDataProperties.swift */,
+			);
+			path = PointData;
+			sourceTree = "<group>";
+		};
+		8E3D3B8525385A4500F025AC /* TemplateData */ = {
 			isa = PBXGroup;
 			children = (
 				8E78F5C52522CE5A00EE1FF1 /* TemplateTodoData+CoreDataClass.swift */,
 				8E78F5C62522CE5A00EE1FF1 /* TemplateTodoData+CoreDataProperties.swift */,
 				8E78F5C72522CE5A00EE1FF1 /* TemplateData+CoreDataClass.swift */,
 				8E78F5C82522CE5A00EE1FF1 /* TemplateData+CoreDataProperties.swift */,
-				8E2DD2FC250F54AF00B9E013 /* PointData+CoreDataClass.swift */,
-				8E2DD2FD250F54AF00B9E013 /* PointData+CoreDataProperties.swift */,
-				8EFE300524C1B873001F46F4 /* TodoData+CoreDataClass.swift */,
-				8EFE300624C1B873001F46F4 /* TodoData+CoreDataProperties.swift */,
+			);
+			path = TemplateData;
+			sourceTree = "<group>";
+		};
+		8E53521324B5D54F00ACBFA8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8E3D3B8325385A2800F025AC /* TodoData */,
+				8E3D3B8425385A3500F025AC /* PointData */,
+				8E3D3B8525385A4500F025AC /* TemplateData */,
 				8EC9D5A524EFD00800F41426 /* DarkModeModel.swift */,
 			);
 			path = Model;
@@ -207,13 +310,10 @@
 		8EEB97B924C34548004ABDBF /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				8EEB97B724C3453E004ABDBF /* TodoListViewModel.swift */,
-				8EEB97BA24C351DA004ABDBF /* InputTodoViewModel.swift */,
-				8E12FA7A24F790A7006133F0 /* TodoListSideMenuViewModel.swift */,
-				8E1A8F172505CF07003E4024 /* TodoItemListCellViewModel.swift */,
-				8ED6288C2511B1630042F854 /* StatisticViewModel.swift */,
-				8E37334F25247288006E5CF5 /* TemplateListViewModel.swift */,
-				8E442D1D253542B400DBE30F /* TemplateListCellViewModel.swift */,
+				8E3D3B752538597100F025AC /* TodoList */,
+				8E3D3B79253859AD00F025AC /* InputTodo */,
+				8E3D3B7A253859C000F025AC /* Statistic */,
+				8E3D3B7F253859F900F025AC /* TemplateList */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -221,15 +321,11 @@
 		926DB0DB24B0C25900130FF6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				926DB0DC24B0C26F00130FF6 /* TodoItemListView.swift */,
-				8EF6C6C624B312E60008CF70 /* FloatingButtonView.swift */,
-				8EF6C6CA24B314EA0008CF70 /* InputTodoView.swift */,
-				8ECC31BA24D8077200C5D001 /* TodoItemListCellView.swift */,
-				8E8F73A524E23C3900761345 /* TodoListSideMenu.swift */,
-				8EB8343325106E6700C0BAE1 /* MainTabBarView.swift */,
-				8EB8343525106E9300C0BAE1 /* StatisticView.swift */,
-				8E3F3A7D252C246200222319 /* TemplateListView.swift */,
-				8E442D192535429900DBE30F /* TemplateListCellView.swift */,
+				8E3D3B742538593D00F025AC /* TodoList */,
+				8E3D3B782538597D00F025AC /* InputTodo */,
+				8E3D3B7B253859D000F025AC /* Statistic */,
+				8E3D3B7C253859E300F025AC /* UIParts */,
+				8E3D3B8225385A1600F025AC /* TemplateList */,
 			);
 			path = View;
 			sourceTree = "<group>";
