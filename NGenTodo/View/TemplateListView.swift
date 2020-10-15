@@ -12,12 +12,20 @@ struct TemplateListView: View {
     @EnvironmentObject var vm: TemplateListViewModel
     var body: some View {
         NavigationView {
-            List {
-                ForEach(vm.templates) { template in
-                    TemplateListCellView(template: template)
+            ZStack {
+                List {
+                    ForEach(vm.templates) { template in
+                        TemplateListCellView(template: template)
+                    }
+                }
+                .navigationBarTitle("Template List")
+
+                FloatingButtonView() {
+                    self.vm.showingAddTemplate.toggle()
+                }.sheet(isPresented: self.$vm.showingAddTemplate) {
+                    // Todo: show View
                 }
             }
-            .navigationBarTitle("Template List")
         }
     }
 }

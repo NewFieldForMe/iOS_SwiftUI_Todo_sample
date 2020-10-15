@@ -10,6 +10,7 @@ import SwiftUI
 
 class TemplateListViewModel: ObservableObject {
     @Published var templates: [TemplateData] = []
+    @Published var showingAddTemplate: Bool = false
 
     init() {
         fetch()
