@@ -11,10 +11,13 @@ import SwiftUI
 struct TemplateListView: View {
     @EnvironmentObject var vm: TemplateListViewModel
     var body: some View {
-        List {
-            ForEach(vm.templates) { template in
-                TemplateListCellView(template: template)
+        NavigationView {
+            List {
+                ForEach(vm.templates) { template in
+                    TemplateListCellView(template: template)
+                }
             }
+            .navigationBarTitle("Template List")
         }
     }
 }
