@@ -23,7 +23,7 @@ struct TemplateListView: View {
                 FloatingButtonView() {
                     self.vm.showingAddTemplate.toggle()
                 }.sheet(isPresented: self.$vm.showingAddTemplate) {
-                    // Todo: show View
+                    InputTemplateView()
                 }
             }
         }
